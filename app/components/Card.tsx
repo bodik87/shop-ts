@@ -15,14 +15,14 @@ export default function Card() {
     priority
     quality={100}
    />
-   <div className="mx-4 mt-4">
-    <h3>Назва моделі завдовжки кількість символів</h3>
+   <div className="mt-2">
+    <h3 className="px-4">Назва моделі завдовжки 25</h3>
 
-    <div className="mt-2 font-medium flex justify-between items-center">
-     <p>
-      <span className="text-lg">2500</span> грн
+    <div className="mt-1 font-medium flex flex-col gap-2">
+     <p className="text-lg px-4">
+      2500<span className="text-sm"> грн</span>
      </p>
-     <button className="-mr-4 bg-yellow-300 h-12 px-8 lg:px-5 rounded-tl-xl rounded-br-xl flex justify-center items-center transition-all hover:bg-yellow-400">
+     <button className="w-full bg-yellow-300 h-12 px-8 rounded-b-xl flex justify-center items-center transition-all hover:bg-yellow-400">
       Купити
      </button>
     </div>

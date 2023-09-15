@@ -15,7 +15,7 @@
     @apply font-medium text-2xl;
   }
   h3 {
-    @apply font-medium text-lg;
+    @apply font-medium;
   }
 }
 
