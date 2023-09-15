@@ -33,7 +33,7 @@ export function CartIcon() {
   );
 }
 
-export function FavoritesIcon({ active }) {
+export function FavoritesIcon({ active }: any) {
   return (
     <svg
       width="24"
