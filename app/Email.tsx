@@ -17,7 +17,7 @@ const Email = () => {
     });
 
     if (response.status === 200) {
-      setData({});
+      // setData({});
       // toast.success("Заказ отправлен");
       router.push("/ordered");
       setLoading(false);
