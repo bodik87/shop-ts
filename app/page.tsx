@@ -1,7 +1,9 @@
+import { HomePageCarousel } from "./components/HomePageCarousel";
+
 export default function Home() {
   return (
     <>
-      {/* <HomePageCarousel /> */}
+      <HomePageCarousel />
 
       <section className="mt-5">
         <h2>Популярні товари</h2>
