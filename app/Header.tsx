@@ -32,7 +32,7 @@ const Header = () => {
 
         <div className="relative">
           <Link
-            href={`/trash`}
+            href={`/cart`}
             className="bg-yellow-300 h-12 px-8 lg:px-5 rounded-xl flex justify-center items-center transition-all hover:bg-yellow-400"
           >
             <CartIcon />
