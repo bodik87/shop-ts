@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   AccountIcon,
   CatalogIcon,
@@ -10,7 +11,7 @@ import {
   MenuIcon,
   SearchIcon,
 } from "../Icons";
-import { categories } from "../../categories/data/categories";
+import { categories } from "../../data/categories";
 
 
 const Navbar = () => {
@@ -26,42 +27,49 @@ const Navbar = () => {
 
   return (
     <>
-      {burger && (
-        <div className="sm:hidden fixed inset-0 bg-slate-100 z-40">
-          <div className="h-full p-6 flex flex-col items-center text-lg">
-            <button className="my-5 ml-auto" onClick={() => setBurger(false)}>
-              <CloseIcon />
-            </button>
+      <AnimatePresence initial={false}>
+        {burger && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="sm:hidden fixed inset-0 bg-slate-100 z-40">
+            <div className="h-full p-6 flex flex-col items-center text-lg">
+              <button className="my-5 ml-auto" onClick={() => setBurger(false)}>
+                <CloseIcon />
+              </button>
 
-            <Link
-              href="/payment-and-delivery"
-              className="py-3"
-              onClick={() => setBurger(false)}
-            >
-              Доставка и оплата
-            </Link>
-            <Link
-              href="/about"
-              className="py-3"
-              onClick={() => setBurger(false)}
-            >
-              Про нас
-            </Link>
-            <Link
-              href="/contacts"
-              className="py-3"
-              onClick={() => setBurger(false)}
-            >
-              Контакти
-            </Link>
+              <Link
+                href="/payment-and-delivery"
+                className="py-3"
+                onClick={() => setBurger(false)}
+              >
+                Доставка и оплата
+              </Link>
+              <Link
+                href="/about"
+                className="py-3"
+                onClick={() => setBurger(false)}
+              >
+                Про нас
+              </Link>
+              <Link
+                href="/contacts"
+                className="py-3"
+                onClick={() => setBurger(false)}
+              >
+                Контакти
+              </Link>
 
-            <div className="mt-auto flex flex-col gap-3">
-              <a href="tel:+380660984114">{`+38(066) 098-41-14`}</a>
-              <a href="tel:+380672785349">{`+38(067) 278-53-49`}</a>
+              <div className="mt-auto flex flex-col gap-3">
+                <a href="tel:+380660984114">{`+38(066) 098-41-14`}</a>
+                <a href="tel:+380672785349">{`+38(067) 278-53-49`}</a>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <nav className="bg-slate-200">
         <div className="max-w-7xl w-full pr-4 sm:pr-6 mx-auto flex justify-between items-center">
@@ -110,6 +118,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
 
           <div className="flex gap-1 lg:gap-2">
             <button className="block sm:hidden p-2">

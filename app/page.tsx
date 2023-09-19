@@ -12,7 +12,7 @@ export default function Home() {
 
       <button
         onClick={() => setGrid(!grid)}
-        className="ml-auto flex gap-2 mt-4 sm:hidden bg-slate-200 p-3 rounded-lg active:bg-slate-300 transition-all"
+        className="ml-auto flex gap-2 mt-4 sm:hidden bg-slate-200 px-3 py-2 rounded-lg active:bg-slate-300 transition-all"
       >
         <span>Змінити вигляд</span>
         {grid ? <ColumnIcon /> : <GridIcon />}

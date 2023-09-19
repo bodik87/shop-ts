@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { ArrowIcon } from "./Icons";
-import homeImage from "../../public/mainSlider/1.jpg";
+import { promos } from "../data/promos";
 
 export const HomePageCarousel = () => {
  const swiperRef = useRef<SwiperCore>();
@@ -27,50 +27,18 @@ export const HomePageCarousel = () => {
     }}
     className="rounded-lg"
    >
-    <SwiperSlide>
-     <Image
-      src={homeImage}
-      alt="My image"
-      width={1280}
-      height={512}
-      className="object-cover rounded-lg"
-      priority
-      quality={100}
-     />
-    </SwiperSlide>
-    <SwiperSlide>
-     <Image
-      src={homeImage}
-      alt="My image"
-      width={1280}
-      height={512}
-      className="object-cover rounded-lg"
-      priority
-      quality={100}
-     />
-    </SwiperSlide>
-    <SwiperSlide>
-     <Image
-      src={homeImage}
-      alt="My image"
-      width={1280}
-      height={512}
-      className="object-cover rounded-lg"
-      priority
-      quality={100}
-     />
-    </SwiperSlide>
-    <SwiperSlide>
-     <Image
-      src={homeImage}
-      alt="My image"
-      width={1280}
-      height={512}
-      className="object-cover rounded-lg"
-      priority
-      quality={100}
-     />
-    </SwiperSlide>
+    {promos.map(promo =>
+     <SwiperSlide key={promo.id}>
+      <Image
+       src={promo.slideImage}
+       alt="Slide image"
+       width={1280}
+       height={512}
+       className="object-cover rounded-lg"
+       priority
+       quality={100}
+      />
+     </SwiperSlide>)}
    </Swiper>
 
    <div className="hidden sm:block">
