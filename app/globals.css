@@ -35,6 +35,22 @@
   @apply bg-red-100 rounded-md;
 }
 
+.scroll_filters {
+  @apply h-auto overflow-y-auto mr-2;
+}
+
+.scroll_filters::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.scroll_filters::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.scroll_filters::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-md;
+}
+
 ::-webkit-scrollbar {
   @apply w-2;
 }

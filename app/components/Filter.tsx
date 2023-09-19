@@ -46,19 +46,18 @@ const Filter = ({ data, filterModal, setFilterModal, setSortedProducts }: Props)
                 exit={{ scale: .95, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 onClick={e => e.stopPropagation()}
-                className="max-w-[250px] w-full overflow-y-auto scroll_categories bg-white rounded-lg">
+                className="max-w-[250px] w-full bg-white rounded-lg overflow-hidden">
 
                 <h2 className='p-4 text-center bg-slate-100'>Фільтр</h2>
-                <div className='p-4'>
 
-                  {availableFilters.map((filter): any =>
-                  (<div key={filter}>
-                    <div className='flex gap-2 items-baseline'>
-                      <p className='font-medium text-lg'>{parametrs[filter]}</p>
+                <div className='mt-2 px-4 max-h-[600px] overflow-y-auto scroll_filters'>{availableFilters.map((filter): any => (
+                  <div key={filter} className='mb-4'>
+                    <div className='mb-2 mt-3 flex gap-2 items-baseline text-xl'>
+                      <p className='font-medium'>{parametrs[filter]}</p>
                       <span className='opacity-50'>{filters[filter].length}</span>
                     </div>
 
-                    <div className='mt-2 mb-3 flex flex-col gap-2'>
+                    <div className='flex flex-col gap-4 text-lg'>
                       {filters[filter].map((item: string) =>
                       (<div key={item} className='flex gap-2 items-center leading-none'>
                         <input type="checkbox" id={item} />
@@ -66,10 +65,16 @@ const Filter = ({ data, filterModal, setFilterModal, setSortedProducts }: Props)
                       </div>
                       ))}
                     </div>
-                  </div>)
-                  )}
-
+                  </div>
+                ))}
                 </div>
+
+                <div className='p-2'>
+                  <button onClick={() => setFilterModal(false)} className='w-full p-4 text-center bg-color_1 text-white rounded-lg  transition-all hover:bg-green-700'>
+                    Фільтрувати
+                  </button>
+                </div>
+
               </motion.div>
 
             </div>
