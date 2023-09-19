@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="flex gap-5 items-center">
             <button
               onClick={() => setCatalog(!catalog)}
-              className="bg-red-500 text-white py-2 pl-5 pr-7 mr-5 rounded-tr-lg xl:rounded-t-lg flex gap-3 items-center transition-all hover:bg-red-600 z-30"
+              className="bg-red-500 text-white py-2 px-4 rounded-tr-lg xl:rounded-t-lg flex gap-3 items-center transition-all hover:bg-red-600 z-30"
             >
               <CatalogIcon />
               <span className="font-medium text-lg">Каталог</span>
@@ -94,29 +94,35 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {catalog && (
-              <div
-                onClick={() => setCatalog(false)}
-                className="fixed inset-0 w-full bg-black/30 z-20"
-              >
-                <div className="max-w-7xl mx-auto">
-                  <div className="mt-[76px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-lg rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
-                    <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
-                      {categories.map((category) => (
-                        <Link
-                          key={category.id}
-                          href={`/categories/${category.id}`}
-                          className="py-6 px-6 text-left transition-all hover:bg-red-600"
-                          onClick={() => setCatalog(false)}
-                        >
-                          {category.id}. {category.title}
-                        </Link>
-                      ))}
+            <AnimatePresence initial={false}>
+              {catalog && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  onClick={() => setCatalog(false)}
+                  className="fixed inset-0 w-full bg-black/30 z-20"
+                >
+                  <div className="max-w-7xl mx-auto">
+                    <div className="mt-[76px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-lg rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
+                      <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
+                        {categories.map((category) => (
+                          <Link
+                            key={category.id}
+                            href={`/categories/${category.id}`}
+                            className="py-6 px-6 text-left transition-all hover:bg-red-600"
+                            onClick={() => setCatalog(false)}
+                          >
+                            {category.id}. {category.title}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
 
