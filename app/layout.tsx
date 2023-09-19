@@ -1,10 +1,11 @@
-import './globals.css'
+import { AuthContextProvider } from "./context/AuthContext";
 import type { Metadata } from 'next'
 import { Roboto } from "next/font/google";
 import Promo from './Promo';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Header from './Header';
+import './globals.css'
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
 
@@ -25,15 +26,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <div className=" sticky top-0 z-40">
+        <AuthContextProvider>
           <Promo />
           <Navbar />
           <Header />
-        </div>
-        <main className="max-w-7xl mx-auto w-full px-3 sm:px-6 py-5 flex-grow">
-          {children}
-        </main>
-        <Footer />
+          <main className="max-w-7xl mx-auto w-full px-3 sm:px-6 py-5 flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </AuthContextProvider>
       </body>
     </html>
   )

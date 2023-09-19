@@ -12,9 +12,10 @@ export default function Home() {
 
       <button
         onClick={() => setGrid(!grid)}
-        className="mt-4 sm:hidden bg-slate-200 p-3 rounded-xl active:bg-slate-300 transition-all"
+        className="ml-auto flex gap-2 mt-4 sm:hidden bg-slate-200 p-3 rounded-xl active:bg-slate-300 transition-all"
       >
-        {grid ? <GridIcon /> : <ColumnIcon />}
+        <span>Змінити вигляд</span>
+        {grid ? <ColumnIcon /> : <GridIcon />}
       </button>
 
       <section className="mt-5">

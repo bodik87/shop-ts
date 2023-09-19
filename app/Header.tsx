@@ -9,9 +9,7 @@ const Header = () => {
     <header className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
       <div className="max-w-7xl w-full py-4 px-4 sm:px-6 mx-auto flex justify-between items-center gap-4">
         <Link href="/">
-          <div className="bg-slate-300 font-medium h-12 px-4 rounded-xl flex justify-center items-center">
-            МАГАЗИН
-          </div>
+          LOGO
         </Link>
 
         <div className="hidden sm:block max-w-xs w-full relative rounded-xl overflow-hidden border border-gray-300">

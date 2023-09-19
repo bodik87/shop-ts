@@ -10,7 +10,7 @@ import {
   MenuIcon,
   SearchIcon,
 } from "./components/Icons";
-import { categories } from "./data/categories";
+import { categories } from "./categories/data/categories";
 
 
 const Navbar = () => {
@@ -115,7 +115,6 @@ const Navbar = () => {
             </Link>
             <Link href={`/account`} className="p-2 flex gap-2 items-center">
               <AccountIcon />
-              <span className="hidden lg:block">Вхід</span>
             </Link>
             <button
               className="block sm:hidden p-2 ml-2"
