@@ -31,12 +31,10 @@ const Panel = () => {
         <div className="relative">
           <Link
             href={`/cart`}
-            className="bg-yellow-300 h-11 px-5 rounded-lg flex justify-center items-center transition-all hover:bg-yellow-400"
+            className="bg-yellow-300 h-11 px-5 rounded-lg flex justify-center items-center gap-2 transition-all hover:bg-yellow-400"
           >
             <CartIcon />
-            <div className="hidden lg:block font-medium">
-              <p>Корзина</p>
-            </div>
+            <p className="hidden lg:block font-medium">Корзина</p>
           </Link>
 
           <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">

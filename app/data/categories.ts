@@ -10,7 +10,7 @@ export const categories: ICategory[] = [
 export const products: iProduct[] = [
   {
     id: "1",
-    title: "Товар 1",
+    title: "Амбасадор",
     categoryId: categories[0].id,
     images: ["/images/cat_1/prod_1/p_1.webp"],
     price: 123,
@@ -20,7 +20,7 @@ export const products: iProduct[] = [
   },
   {
     id: "2",
-    title: "Товар 2",
+    title: "Якобз",
     categoryId: categories[0].id,
     images: ["/images/cat_1/prod_2/p_1.webp"],
     price: 2300,

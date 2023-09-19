@@ -38,7 +38,7 @@ export default function Card({ product }: Props) {
      </div>
     </div>
 
-    <button className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-gray-900">
+    <button className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
      Купити
     </button>
    </div>

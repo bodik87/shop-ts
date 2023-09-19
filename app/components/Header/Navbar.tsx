@@ -110,6 +110,7 @@ const Navbar = () => {
                         {categories.map((category) => (
                           <Link
                             key={category.id}
+
                             href={`/categories/${category.id}`}
                             className="py-6 px-6 text-left transition-all hover:bg-red-600"
                             onClick={() => setCatalog(false)}
