@@ -18,15 +18,15 @@ const Grid = ({ children, gridTitle }: Props) => {
 
         <button
           onClick={() => setGrid(!grid)}
-          className="ml-auto flex gap-2 sm:hidden bg-gray-50 px-3 py-2 rounded-lg active:bg-gray-100 transition-all"
+          className="ml-auto gap-2 hidden sm:flex lg:hidden bg-gray-50 px-3 py-2 rounded-lg active:bg-gray-100 transition-all"
         >
           {grid ? <ColumnIcon /> : <GridIcon />}
         </button>
       </div>
 
       <div
-        className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-          } sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-5`}
+        className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-3"
+          } grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5`}
       >
         {children}
       </div>
