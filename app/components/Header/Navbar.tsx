@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -9,15 +9,21 @@ import {
   FavoritesIcon,
   MenuIcon,
   SearchIcon,
-} from "./components/Icons";
-import { categories } from "./categories/data/categories";
+} from "../Icons";
+import { categories } from "../../categories/data/categories";
 
 
 const Navbar = () => {
   const [catalog, setCatalog] = useState(false);
   const [burger, setBurger] = useState(false);
 
+  useEffect(() => {
+    if (burger || catalog) window.document.body.style.overflow = "hidden";
+    else window.document.body.style.overflow = "auto";
+  }, [burger, catalog]);
+
   const pathname = usePathname();
+
   return (
     <>
       {burger && (
@@ -62,20 +68,20 @@ const Navbar = () => {
           <div className="flex gap-5 items-center">
             <button
               onClick={() => setCatalog(!catalog)}
-              className="bg-red-500 text-white py-3 pl-5 pr-7 xl:mt-1 mr-5 rounded-tr-xl xl:rounded-t-xl flex gap-3 items-center transition-all hover:bg-red-600 z-30"
+              className="bg-red-500 text-white py-2 pl-5 pr-7 mr-5 rounded-tr-lg xl:rounded-t-lg flex gap-3 items-center transition-all hover:bg-red-600 z-30"
             >
               <CatalogIcon />
               <span className="font-medium text-lg">Каталог</span>
             </button>
 
-            <div className="hidden sm:flex gap-6 mt-[2px] text-sm lg:text-base">
-              <Link href="/payment-and-delivery" className="py-3 ">
+            <div className="hidden sm:flex gap-6 text-sm lg:text-base">
+              <Link href="/payment-and-delivery">
                 Доставка и оплата
               </Link>
-              <Link href="/about" className="py-3">
+              <Link href="/about">
                 Про нас
               </Link>
-              <Link href="/contacts" className="py-3">
+              <Link href="/contacts">
                 Контакти
               </Link>
             </div>
@@ -86,7 +92,7 @@ const Navbar = () => {
                 className="fixed inset-0 w-full bg-black/30 z-20"
               >
                 <div className="max-w-7xl mx-auto">
-                  <div className="mt-[84px] xl:mt-[88px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-xl rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
+                  <div className="mt-[76px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-lg rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
                     <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
                       {categories.map((category) => (
                         <Link

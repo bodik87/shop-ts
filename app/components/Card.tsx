@@ -4,14 +4,14 @@ import good from "../../public/good.jpg";
 
 export default function Card() {
  return (
-  <div className="w-full object-contain relative mb-5 bg-slate-100 rounded-xl">
+  <div className="w-full object-contain relative mb-5 bg-slate-100 rounded-lg">
    <Image
     src={good}
     alt="My image"
     width={426}
     height={600}
     // fill
-    className="object-cover rounded-t-xl w-full"
+    className="object-cover rounded-t-lg w-full"
     priority
     quality={100}
    />
@@ -22,7 +22,7 @@ export default function Card() {
      <p className="text-lg px-4">
       2500<span className="text-sm"> грн</span>
      </p>
-     <button className="w-full bg-yellow-300 h-12 px-8 rounded-b-xl flex justify-center items-center transition-all hover:bg-yellow-400">
+     <button className="w-full bg-yellow-300 h-10 px-8 rounded-b-xl flex justify-center items-center transition-all hover:bg-yellow-400">
       Купити
      </button>
     </div>

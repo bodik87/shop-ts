@@ -4,58 +4,58 @@ import { UserAuth } from "../context/AuthContext";
 import Image from "next/image";
 
 const Account = () => {
- const { user, googleSignIn, logOut } = UserAuth();
- const [loading, setLoading] = useState(true);
+  const { user, googleSignIn, logOut } = UserAuth();
+  const [loading, setLoading] = useState(true);
 
- console.log(user);
+  console.log(user);
 
 
- const handleSignIn = async () => {
-  try {
-   await googleSignIn();
-  } catch (error) {
-   console.log(error);
-  }
- };
-
- const handleSignOut = async () => {
-  try {
-   await logOut();
-  } catch (error) {
-   console.log(error);
-  }
- };
-
- useEffect(() => {
-  const checkAuthentication = async () => {
-   await new Promise((resolve) => setTimeout(resolve, 50));
-   setLoading(false);
+  const handleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
   };
-  checkAuthentication();
- }, [user]);
 
- return (
-  <>
-   <div className="flex justify-between">
-    <h1>Акаунт</h1>
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    <button
-     onClick={user ? handleSignOut : handleSignIn}
-     className="bg-slate-300 h-12 px-5 rounded-xl flex justify-center items-center transition-all hover:bg-slate-400"
-    >
-     {user ? "Вийти" : "Вхід"}
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      setLoading(false);
+    };
+    checkAuthentication();
+  }, [user]);
 
-    </button>
+  return (
+    <>
+      <div className="flex justify-between">
+        <h1>Акаунт</h1>
 
-   </div>
+        <button
+          onClick={user ? handleSignOut : handleSignIn}
+          className="bg-slate-300 h-12 px-5 rounded-lg flex justify-center items-center transition-all hover:bg-slate-400"
+        >
+          {user ? "Вийти" : "Вхід"}
 
-   {user &&
-    <div className="flex items-center gap-2">
-     <Image src={user.photoURL} alt="User photo" width={30} height={30} className="rounded-full" />
-     <p>{user.displayName}</p>
-    </div>}
-  </>
- )
+        </button>
+
+      </div>
+
+      {user &&
+        <div className="flex items-center gap-2">
+          <Image src={user.photoURL} alt="User photo" width={30} height={30} className="rounded-full" />
+          <p>{user.displayName}</p>
+        </div>}
+    </>
+  )
 }
 
 export default Account

@@ -12,7 +12,7 @@ export default function Home() {
 
       <button
         onClick={() => setGrid(!grid)}
-        className="ml-auto flex gap-2 mt-4 sm:hidden bg-slate-200 p-3 rounded-xl active:bg-slate-300 transition-all"
+        className="ml-auto flex gap-2 mt-4 sm:hidden bg-slate-200 p-3 rounded-lg active:bg-slate-300 transition-all"
       >
         <span>Змінити вигляд</span>
         {grid ? <ColumnIcon /> : <GridIcon />}
@@ -23,7 +23,7 @@ export default function Home() {
 
         <div
           className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-            } sm:grid-cols-2 md:grid-cols-3 gap-5`}
+            } sm:grid-cols-2 md:grid-cols-3 gap-3`}
         >
           <Card />
           <Card />
@@ -40,7 +40,7 @@ export default function Home() {
 
         <div
           className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-            } sm:grid-cols-2 md:grid-cols-3 gap-5`}
+            } sm:grid-cols-2 md:grid-cols-3 gap-3`}
         >
           <Card />
           <Card />

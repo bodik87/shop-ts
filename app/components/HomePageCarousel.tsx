@@ -25,7 +25,7 @@ export const HomePageCarousel = () => {
     onBeforeInit={(swiper) => {
      swiperRef.current = swiper;
     }}
-    className="rounded-xl"
+    className="rounded-lg"
    >
     <SwiperSlide>
      <Image
@@ -33,7 +33,7 @@ export const HomePageCarousel = () => {
       alt="My image"
       width={1280}
       height={512}
-      className="object-cover rounded-xl"
+      className="object-cover rounded-lg"
       priority
       quality={100}
      />
@@ -44,7 +44,7 @@ export const HomePageCarousel = () => {
       alt="My image"
       width={1280}
       height={512}
-      className="object-cover rounded-xl"
+      className="object-cover rounded-lg"
       priority
       quality={100}
      />
@@ -55,7 +55,7 @@ export const HomePageCarousel = () => {
       alt="My image"
       width={1280}
       height={512}
-      className="object-cover rounded-xl"
+      className="object-cover rounded-lg"
       priority
       quality={100}
      />
@@ -66,7 +66,7 @@ export const HomePageCarousel = () => {
       alt="My image"
       width={1280}
       height={512}
-      className="object-cover rounded-xl"
+      className="object-cover rounded-lg"
       priority
       quality={100}
      />
