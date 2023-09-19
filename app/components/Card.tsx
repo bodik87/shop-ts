@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import good from "../../public/good.jpg";
+import good from "../../public/good.webp";
 import Link from "next/link";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 export default function Card({ id }: Props) {
  return (
-  <div className="w-full object-contain relative bg-slate-100 rounded-lg">
+  <div className="w-full object-contain relative rounded-lg">
    <Link href={`/products/${id}`}>
     <Image
      src={good}
@@ -17,11 +17,12 @@ export default function Card({ id }: Props) {
      width={600}
      height={600}
      // fill
-     className="object-cover rounded-t-lg w-full"
+     className="object-cover rounded-t-lg w-full p-10 bg-white"
      priority
      quality={100}
     />
    </Link>
+
    <div className="mt-2 text-sm lg:text-base">
     <h3 className="px-3">Назва моделі завдовжки 25</h3>
 
@@ -29,7 +30,7 @@ export default function Card({ id }: Props) {
      <p className="px-3 text-lg">
       2500<span className="text-sm"> грн</span>
      </p>
-     <button className="w-full bg-black text-white h-10 px-8 rounded-b-xl flex justify-center items-center transition-all hover:bg-gray-900">
+     <button className="w-full bg-black text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-gray-900">
       Купити
      </button>
     </div>

@@ -1,12 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { ColumnIcon, FilterIcon, GridIcon } from "../../components/Icons";
-import Card from "../../components/Card";
 import { useParams } from "next/navigation";
+import { FilterIcon } from "../../components/Icons";
+import Card from "../../components/Card";
+import Grid from "@/app/components/Grid";
 
 const Category = () => {
   const [grid, setGrid] = useState(true);
   const { id } = useParams();
+
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
   return (
     <>
       <div className="flex justify-between items-center">
@@ -16,28 +20,12 @@ const Category = () => {
           <button className="p-3 bg-slate-200 rounded-lg flex gap-2">
             <FilterIcon />
           </button>
-
-          <button
-            onClick={() => setGrid(!grid)}
-            className="sm:hidden bg-slate-200 p-3 rounded-lg active:bg-slate-300 transition-all"
-          >
-            {grid ? <GridIcon /> : <ColumnIcon />}
-          </button>
         </div>
       </div>
 
-      <section
-        className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-          } sm:grid-cols-2 md:grid-cols-3 gap-3`}
-      >
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </section>
+      <Grid>
+        {arr.map((el, i) => <Card key={i} id={i} />)}
+      </Grid>
     </>
   )
 }
