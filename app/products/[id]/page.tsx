@@ -2,11 +2,11 @@
 import { useParams } from 'next/navigation';
 import React from 'react'
 
-const PromoPage = () => {
+const ProductPage = () => {
  const { id } = useParams();
  return (
-  <div>Акція №{id}</div>
+  <div>Товар {id}</div>
  )
 }
 
-export default PromoPage
+export default ProductPage

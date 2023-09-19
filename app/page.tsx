@@ -3,9 +3,12 @@ import { useState } from "react";
 import Card from "./components/Card";
 import { HomePageCarousel } from "./components/HomePageCarousel";
 import { ColumnIcon, GridIcon } from "./components/Icons";
+import Grid from "./components/Grid";
 
 export default function Home() {
   const [grid, setGrid] = useState(true);
+
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   return (
     <>
       <HomePageCarousel />
@@ -17,39 +20,13 @@ export default function Home() {
         {grid ? <ColumnIcon /> : <GridIcon />}
       </button>
 
-      <section className="mt-5">
-        <h2>Популярні товари</h2>
+      <Grid grid={grid}>
+        {arr.map((el, i) => <Card key={i} id={i} />)}
+      </Grid>
 
-        <div
-          className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-            } sm:grid-cols-2 md:grid-cols-3 gap-3`}
-        >
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
-      </section>
-
-      <section className="mt-5">
-        <h2>Переглянуті раніше</h2>
-
-        <div
-          className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-            } sm:grid-cols-2 md:grid-cols-3 gap-3`}
-        >
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
-      </section>
+      <Grid grid={grid}>
+        {arr.map((el, i) => <Card key={i} id={i} />)}
+      </Grid>
     </>
   )
 }
