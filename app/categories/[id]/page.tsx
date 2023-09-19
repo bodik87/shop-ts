@@ -4,10 +4,14 @@ import { useParams } from "next/navigation";
 import { FilterIcon } from "../../components/Icons";
 import Card from "../../components/Card";
 import Grid from "@/app/components/Grid";
-import { products } from "@/app/data/categories";
+import { categories, products } from "@/app/data/categories";
+import { iProduct } from "@/app/models/models";
 
 const Category = () => {
   const { id } = useParams();
+
+  const data: iProduct[] = products.filter(product => product.categoryId === id)
+  const categoriyTitle = categories.filter(category => category.id === id)[0].title
 
   return (
     <>
@@ -20,8 +24,8 @@ const Category = () => {
         </div>
       </div>
 
-      <Grid gridTitle={`Категорія ${id}`}>
-        {products.map((product) => <Card key={product.id} product={product} />)}
+      <Grid gridTitle={categoriyTitle}>
+        {data.map((product) => <Card key={product.id} product={product} />)}
       </Grid >
     </>
   )

@@ -6,7 +6,7 @@ export interface ICategory {
 export interface iProduct {
   id: string;
   title: string;
-  category: string;
+  categoryId: string;
   images: string[];
   price: number;
   oldPrice?: number;
