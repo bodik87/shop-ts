@@ -1,14 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "next/navigation";
 import { FilterIcon } from "../../components/Icons";
 import Card from "../../components/Card";
 import Grid from "@/app/components/Grid";
+import { products } from "@/app/data/categories";
 
 const Category = () => {
   const { id } = useParams();
-
-  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   return (
     <>
@@ -22,7 +21,7 @@ const Category = () => {
       </div>
 
       <Grid gridTitle={`Категорія ${id}`}>
-        {arr.map((el, i) => <Card key={i} id={i} />)}
+        {products.map((product) => <Card key={product.id} product={product} />)}
       </Grid >
     </>
   )
