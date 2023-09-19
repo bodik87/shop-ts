@@ -17,23 +17,21 @@ export default function Card({ id }: Props) {
      width={600}
      height={600}
      // fill
-     className="object-cover rounded-t-lg w-full p-10 bg-white"
+     className="object-cover rounded-t-lg w-full px-10 pt-2 bg-white"
      priority
      quality={100}
     />
    </Link>
 
    <div className="mt-2 text-sm lg:text-base">
-    <h3 className="px-3">Назва моделі завдовжки 25</h3>
+    <h3 className="px-2">Назва моделі завдовжки 25</h3>
 
-    <div className="mt-1 font-medium flex flex-col gap-2">
-     <p className="px-3 text-lg">
-      2500<span className="text-sm"> грн</span>
-     </p>
-     <button className="w-full bg-black text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-gray-900">
-      Купити
-     </button>
-    </div>
+    <p className="px-2 text-lg font-medium">
+     2500<span className="text-sm"> грн</span>
+    </p>
+    <button className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-gray-900">
+     Купити
+    </button>
    </div>
   </div>
  );

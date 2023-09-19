@@ -6,7 +6,6 @@ import Card from "../../components/Card";
 import Grid from "@/app/components/Grid";
 
 const Category = () => {
-  const [grid, setGrid] = useState(true);
   const { id } = useParams();
 
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -14,18 +13,17 @@ const Category = () => {
   return (
     <>
       <div className="flex justify-between items-center">
-        <h1>Категорія {id}</h1>
-
         <div className="flex gap-3">
           <button className="p-3 bg-slate-200 rounded-lg flex gap-2">
+            <span>Фільтрувати</span>
             <FilterIcon />
           </button>
         </div>
       </div>
 
-      <Grid>
+      <Grid gridTitle={`Категорія ${id}`}>
         {arr.map((el, i) => <Card key={i} id={i} />)}
-      </Grid>
+      </Grid >
     </>
   )
 }

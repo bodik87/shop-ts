@@ -4,16 +4,17 @@ import { ColumnIcon, GridIcon } from './Icons'
 
 type Props = {
   children: React.ReactNode,
+  gridTitle: string
   // grid: boolean
   // setGrid: (value: boolean) => void
 }
 
-const Grid = ({ children }: Props) => {
+const Grid = ({ children, gridTitle }: Props) => {
   const [grid, setGrid] = useState(true);
   return (
     <section className="mt-10">
       <div className='flex justify-between items-center gap-3'>
-        <h2>Популярні товари</h2>
+        <h2>{gridTitle}</h2>
 
         <button
           onClick={() => setGrid(!grid)}
@@ -25,7 +26,7 @@ const Grid = ({ children }: Props) => {
 
       <div
         className={`mt-5 grid ${grid ? "grid-cols-2" : "grid-cols-1"
-          } sm:grid-cols-2 md:grid-cols-3 gap-3`}
+          } sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-5`}
       >
         {children}
       </div>

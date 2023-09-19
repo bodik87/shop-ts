@@ -12,11 +12,11 @@ export default function Home() {
     <>
       <HomePageCarousel />
 
-      <Grid>
+      <Grid gridTitle="Популярні товари">
         {arr.map((el, i) => <Card key={i} id={i} />)}
       </Grid>
 
-      <Grid>
+      <Grid gridTitle="Раніше переглянуті">
         {arr.map((el, i) => <Card key={i} id={i} />)}
       </Grid>
     </>
