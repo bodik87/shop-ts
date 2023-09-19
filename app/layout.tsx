@@ -5,6 +5,7 @@ import Promo from './Promo';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Header from './Header';
+import ButtonUp from "./components/ButtonUp";
 import './globals.css'
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <AuthContextProvider>
+          <ButtonUp />
           <Promo />
           <Navbar />
           <Header />
