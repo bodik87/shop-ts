@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { sort } from 'fast-sort';
 import { motion, AnimatePresence } from "framer-motion";
 import Card from "../../components/Card";
 import Grid from "@/app/components/Grid";
 import { categories, products } from "@/app/data/categories";
 import { iProduct } from "@/app/models/models";
 import { FilterIcon, SortIcon } from "@/app/components/Icons";
-import { sort } from 'fast-sort';
 
 
 const Category = () => {
@@ -40,24 +40,24 @@ const Category = () => {
             onClick={() => setSortModal(false)}
             className="fixed inset-0 bg-black/30 z-30">
 
-            <div className="max-w-7xl mx-auto h-full flex justify-center items-center">
+            <div className="max-w-7xl mx-auto flex h-full justify-end items-end pb-5 pr-2">
               <motion.div
                 initial={{ scale: .95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: .95, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 onClick={e => e.stopPropagation()}
-                className="max-w-xs w-full overflow-y-auto scroll_categories bg-white rounded-lg">
+                className="overflow-y-auto scroll_categories bg-white rounded-lg">
 
-                <h2 className='p-4'>Сортування</h2>
+                <h2 className='p-4 text-center bg-slate-100'>Сортування</h2>
 
-                <div className="mt-4 flex flex-col">
-                  <button onClick={() => { setSortedProducts(priceIncr), setSortModal(false) }}>
+                <div className="flex flex-col">
+                  <button className="px-8 py-3 hover:bg-gray-100 transition-all" onClick={() => { setSortedProducts(priceIncr), setSortModal(false) }}>
                     від дешевих до дорогих
                   </button>
-                  <button onClick={() => { setSortedProducts(priceDecr), setSortModal(false) }}>від дорогих до дешевих
+                  <button className="px-8 py-3 hover:bg-gray-100 transition-all" onClick={() => { setSortedProducts(priceDecr), setSortModal(false) }}>від дорогих до дешевих
                   </button>
-                  <button onClick={() => { setSortedProducts(priceIncr), setSortModal(false) }}>за рейтингом
+                  <button className="px-8 py-3 hover:bg-gray-100 transition-all" onClick={() => { setSortedProducts(priceIncr), setSortModal(false) }}>за рейтингом
                   </button>
                 </div>
               </motion.div>
