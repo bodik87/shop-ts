@@ -17,5 +17,5 @@ export interface iProductParametr {
   brand?: string;
   size?: string;
   color?: string;
-  rating?: 0;
+  rating?: number;
 }

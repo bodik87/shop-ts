@@ -21,16 +21,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
-        <AuthContextProvider>
+      <AuthContextProvider>
+        <body className={`${roboto.className} flex flex-col min-h-screen`}>
           <ButtonUp />
           <Header />
-          <main className="max-w-7xl mt-[140px] mx-auto w-full px-3 sm:px-6 py-5 flex-grow">
+          <main className="max-w-7xl w-full mx-auto mt-[140px] px-3 sm:px-6 py-5">
             {children}
           </main>
           <Footer />
-        </AuthContextProvider>
-      </body>
+        </body>
+      </AuthContextProvider>
     </html>
   )
 }

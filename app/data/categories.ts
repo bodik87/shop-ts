@@ -15,7 +15,8 @@ export const products: iProduct[] = [
     images: ["/images/cat_1/prod_1/p_1.webp"],
     price: 123,
     parametrs: {
-      size: "XL",
+      brand: "Виробник 1",
+      color: "Червоний",
     },
   },
   {
@@ -25,7 +26,9 @@ export const products: iProduct[] = [
     images: ["/images/cat_1/prod_2/p_1.webp"],
     price: 2300,
     oldPrice: 4000,
-    parametrs: {},
+    parametrs: {
+      brand: "Виробник 2",
+    },
   },
   {
     id: "3",
@@ -33,6 +36,8 @@ export const products: iProduct[] = [
     categoryId: categories[1].id,
     images: ["/images/cat_1/prod_2/p_1.webp"],
     price: 300,
-    parametrs: {},
+    parametrs: {
+      brand: "Виробник 2",
+    },
   },
 ];
