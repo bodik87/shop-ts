@@ -15,7 +15,7 @@ export default function ButtonUp() {
   const { scrollY }: any = useScroll();
 
   useMotionValueEvent(scrollY, "change", () => {
-    if (scrollY.current > 500) {
+    if (scrollY.current > 300) {
       setShow(true);
     } else {
       setShow(false);
@@ -31,7 +31,7 @@ export default function ButtonUp() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 20, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="w-12 h-12 flex items-center justify-center bg-white/50 border-2 border-gray-300/50 rounded-full fixed bottom-4 right-4 z-40 backdrop-blur-md"
+            className="w-12 h-12 flex items-center justify-center bg-white/50 border-2 border-gray-300/50 rounded-full fixed bottom-4 right-4 z-10 backdrop-blur-md"
             onClick={scrollToTop}
           >
             <UPArrow />

@@ -29,7 +29,7 @@ const Header = () => {
 
  return (
   <header
-   className={`${!scrollUp && "-translate-y-full"} fixed top-0 left-0 w-full transition-all duration-300 flex flex-col z-20`}
+   className={`${!scrollUp && "-translate-y-full"} fixed top-0 left-0 w-full transition-all duration-300 flex flex-col z-50`}
   >
    <Promo />
    <Navbar />
