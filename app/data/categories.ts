@@ -28,6 +28,7 @@ export const products: iProduct[] = [
     oldPrice: 4000,
     parametrs: {
       brand: "Виробник 2",
+      color: "Зелений",
     },
   },
   {
@@ -38,6 +39,16 @@ export const products: iProduct[] = [
     price: 300,
     parametrs: {
       brand: "Виробник 2",
+    },
+  },
+  {
+    id: "4",
+    title: "Ковбаса",
+    categoryId: categories[0].id,
+    images: ["/images/cat_1/prod_2/p_1.webp"],
+    price: 400,
+    parametrs: {
+      brand: "Виробник 4",
     },
   },
 ];

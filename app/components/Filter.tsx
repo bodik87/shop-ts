@@ -55,7 +55,7 @@ const Filter = ({ data, filterModal, setFilterModal, setSortedProducts }: Props)
                   (<div key={filter}>
                     <div className='flex gap-2 items-baseline'>
                       <p className='font-medium text-lg'>{parametrs[filter]}</p>
-                      <span className='opacity-50'>{filters.brand.length}</span>
+                      <span className='opacity-50'>{filters[filter].length}</span>
                     </div>
 
                     <div className='mt-2 mb-3 flex flex-col gap-2'>
