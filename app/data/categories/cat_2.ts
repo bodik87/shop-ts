@@ -6,7 +6,7 @@ export const cat_2: iCategory = {
   title: categories[1].title,
   products: [
     {
-      id: "1",
+      id: "3",
       title: "Амбасадор",
       images: ["/images/cat_1/prod_1/p_1.webp"],
       price: 60,
@@ -15,7 +15,7 @@ export const cat_2: iCategory = {
       quantity: 1,
     },
     {
-      id: "2",
+      id: "4",
       title: "Якобз",
       images: ["/images/cat_1/prod_2/p_1.webp"],
       price: 30,
@@ -24,7 +24,7 @@ export const cat_2: iCategory = {
       quantity: 1,
     },
     {
-      id: "3",
+      id: "5",
       title: "Амбасадор",
       images: ["/images/cat_1/prod_1/p_1.webp"],
       price: 160,
@@ -33,7 +33,7 @@ export const cat_2: iCategory = {
       quantity: 1,
     },
     {
-      id: "4",
+      id: "6",
       title: "Якобз",
       images: ["/images/cat_1/prod_2/p_1.webp"],
       price: 230,
