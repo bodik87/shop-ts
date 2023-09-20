@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 // import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useCartStore } from "./store/cart";
 
 const Email = ({ total }: { total: number }) => {
   const [data, setData] = useState({ name: "Bodik" });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const cartStore = useCartStore();
 
   const sendEmail = async () => {
     setLoading(true);
@@ -22,6 +25,7 @@ const Email = ({ total }: { total: number }) => {
       router.push("/ordered");
       setLoading(false);
     }
+    cartStore.clearCart()
   };
 
   return (
