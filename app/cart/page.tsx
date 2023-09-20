@@ -26,7 +26,7 @@ const Cart = () => {
         <div key={el.id} className="mt-5 flex justify-between">
           <div className="flex gap-6">
             <Link href={`/products/${el.id}`} className="mt-2">
-              <Image width={60} height={150} src={el.images[0]} alt={el.title} />
+              <Image width={60} height={100} src={el.images[0]} alt={el.title} />
             </Link>
 
             <div>
@@ -41,7 +41,7 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col items-end">
+          <div className="mt-3 flex flex-col items-end">
             <button onClick={() => cartStore.deleteProduct(el)}><DotsArrow /></button>
             <h3 className="mt-12">{el.quantity * el.price} грн</h3>
           </div>
@@ -49,7 +49,7 @@ const Cart = () => {
         </div>
       ))}
 
-      <Email total={total} />
+      {cartStore.cart.length > 0 ? <Email total={total} /> : <h2 className="mt-8">Товари відсутні</h2>}
     </div>
   );
 };
