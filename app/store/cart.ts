@@ -7,8 +7,9 @@ type CartState = {
   cart: iProduct[];
   addToCart: (item: iProduct) => void;
   decrQuantity: (item: iProduct) => void;
-  // clearCart: () => void;
+  incrQuantity: (item: iProduct) => void;
   deleteProduct: (item: iProduct) => void;
+  clearCart: () => void;
 };
 
 export const useCartStore = create<CartState>()(
@@ -31,6 +32,16 @@ export const useCartStore = create<CartState>()(
           } else {
             return { cart: [...state.cart, { ...item, quantity: 1 }] };
           }
+        }),
+      incrQuantity: (item) =>
+        set((state) => {
+          const updatedCart = state.cart.map((cartItem: any) => {
+            if (cartItem.id === item.id) {
+              return { ...cartItem, quantity: cartItem.quantity! + 1 };
+            }
+            return cartItem;
+          });
+          return { cart: updatedCart };
         }),
       decrQuantity: (item) =>
         set((state) => {
@@ -60,11 +71,6 @@ export const useCartStore = create<CartState>()(
           return { cart: filteredCart };
         }),
       clearCart: () => set((state) => ({ cart: [] })),
-
-      // decrQuantity: (item) =>
-      //   set((state) => {
-      //     return { cart };
-      //   }),
     }),
 
     { name: "cart-store" }
