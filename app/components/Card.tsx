@@ -3,16 +3,17 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { iProduct } from "../models/models";
-import { UserAuth } from "../context/AuthContext";
+import { useCartStore } from "../store/cart";
 
 type Props = { product: iProduct }
 
 export default function Card({ product }: Props) {
-
-  const { setTotal } = UserAuth();
+  const { inc } = useCartStore()
 
   const handleBuy = (product: iProduct) => {
-    const prev: iProduct[] = localStorage.getItem("cart") && JSON.parse(localStorage.cart);
+    const value = typeof window !== "undefined" ? window.localStorage.getItem('cart') : false
+
+    const prev: iProduct[] = value && JSON.parse(localStorage.cart);
 
     if (prev) {
       const existingItem = prev.find(item => item.id === product.id)
@@ -29,6 +30,7 @@ export default function Card({ product }: Props) {
     } else {
       localStorage.setItem("cart", JSON.stringify([product]))
     }
+    inc(product.price)
   }
 
   return (

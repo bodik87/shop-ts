@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect } from 'react'
+import React from 'react'
 import { CartIcon, SearchIcon } from "../Icons";
+import { useCartStore } from "@/app/store/cart";
 
 const Panel = () => {
+
+  const { count } = useCartStore()
 
   return (
     <header className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
@@ -37,9 +40,10 @@ const Panel = () => {
             <p className="hidden lg:block font-medium">Корзина</p>
           </Link>
 
-          {<div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
-            0<span className="text-[10px] ml-1">грн</span>
-          </div>}
+          {count > 0 &&
+            <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
+              {count}<span className="text-[10px] ml-1">грн</span>
+            </div>}
         </div>
       </div>
     </header>
