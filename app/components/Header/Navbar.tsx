@@ -31,7 +31,6 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           className="sm:hidden fixed inset-0 bg-slate-100 z-40">
           <div className="h-full p-6 flex flex-col items-center text-lg">
@@ -96,7 +95,6 @@ const Navbar = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 onClick={() => setCatalog(false)}
                 className="fixed inset-0 w-full bg-black/30 z-20"

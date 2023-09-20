@@ -14,7 +14,7 @@ export default function Hydration({ children }: { children: ReactNode }) {
         <>{children}</>
       ) : (
         <div className="h-screen flex items-center justify-center mx-0">
-          <h1 className="text-3xl font-bold text-primary">Loading...</h1>
+          <h1 className="text-3xl font-bold text-primary">Завантаження</h1>
         </div>
       )}
     </>

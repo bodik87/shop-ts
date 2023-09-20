@@ -23,7 +23,6 @@ const Sort = ({ data, sortModal, setSortModal, setSortedProducts }: Props) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           onClick={() => setSortModal(false)}
           className="fixed inset-0 bg-black/30 z-30">
@@ -32,7 +31,6 @@ const Sort = ({ data, sortModal, setSortModal, setSortedProducts }: Props) => {
             <motion.div
               initial={{ scale: .95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: .95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               onClick={e => e.stopPropagation()}
               className="overflow-y-auto scroll_categories bg-white rounded-lg">
