@@ -33,7 +33,7 @@ const Cart = () => {
               <div className="opacity-80">Ціна за рдиницю: {el.price} грн</div>
 
               <div className="mt-3 flex items-center gap-3 text-lg">
-                <button className="bg-slate-200 rounded-lg w-10 h-10">-</button>
+                <button disabled={el.quantity === 1} className="bg-slate-200 rounded-lg w-10 h-10 disabled:opacity-50">-</button>
                 <span className="border rounded-lg w-12 h-12 flex items-center justify-center">{el.quantity}</span>
                 <button className="bg-slate-200 rounded-lg w-10 h-10">+</button>
               </div>

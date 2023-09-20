@@ -6,6 +6,7 @@ import { iProduct } from "../models/models";
 type CartState = {
   cart: iProduct[];
   addToCart: (item: iProduct) => void;
+  // incrQuantity: (id: number) => void;
   // clearCart: () => void;
   // removeProduct: (item: iProduct[]) => void;
 };
@@ -52,6 +53,11 @@ export const useCartStore = create<CartState>()(
       //     }
       //   }),
       // clearCart: () => set((state) => ({ cart: [] })),
+
+      // incrQuantity: (item) =>
+      //   set((state) => {
+      //     return { cart };
+      //   }),
     }),
 
     { name: "cart-store" }
