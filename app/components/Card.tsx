@@ -3,33 +3,10 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { iProduct } from "../models/models";
-import { useCartStore } from "../store/cart";
 
 type Props = { product: iProduct }
 
 export default function Card({ product }: Props) {
-  const { inc } = useCartStore()
-
-  const handleBuy = (product: iProduct) => {
-    const prev: iProduct[] = localStorage.getItem('cart') && JSON.parse(localStorage.cart);
-
-    if (prev) {
-      const existingItem = prev.find(item => item.id === product.id)
-
-      if (existingItem) {
-        const updatedItems = prev.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-        localStorage.setItem("cart", JSON.stringify(updatedItems))
-      } else {
-        localStorage.setItem("cart", JSON.stringify([...prev, product]))
-
-      }
-    } else {
-      localStorage.setItem("cart", JSON.stringify([product]))
-    }
-    inc(product.price)
-  }
 
   return (
     <div className="mt-2 w-full object-contain relative rounded-lg">
@@ -63,7 +40,7 @@ export default function Card({ product }: Props) {
           </div>
         </div>
 
-        <button onClick={() => handleBuy(product)} className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
+        <button className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
           Купити
         </button>
       </div>
