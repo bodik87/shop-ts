@@ -5,6 +5,9 @@ import { iProduct } from "../models/models";
 import { useCartStore } from "../store/cart";
 
 const Cart = () => {
+  const value =
+    typeof window !== "undefined" ? window.localStorage.getItem("cart") : false;
+
   const cart: iProduct[] = JSON.parse(localStorage.cart) || null;
   const { count } = useCartStore()
 

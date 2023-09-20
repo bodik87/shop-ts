@@ -11,9 +11,7 @@ export default function Card({ product }: Props) {
   const { inc } = useCartStore()
 
   const handleBuy = (product: iProduct) => {
-    const value = typeof window !== "undefined" ? window.localStorage.getItem('cart') : false
-
-    const prev: iProduct[] = value && JSON.parse(localStorage.cart);
+    const prev: iProduct[] = localStorage.getItem('cart') && JSON.parse(localStorage.cart);
 
     if (prev) {
       const existingItem = prev.find(item => item.id === product.id)
