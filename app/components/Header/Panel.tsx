@@ -1,13 +1,9 @@
 "use client";
 import Link from "next/link";
-import React from 'react'
+import React, { useEffect } from 'react'
 import { CartIcon, SearchIcon } from "../Icons";
-import { iProduct } from "@/app/models/models";
-
 
 const Panel = () => {
-  const cart: iProduct[] = localStorage.getItem("cart") && JSON.parse(localStorage.cart);
-  const totalPrice = cart && cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
   return (
     <header className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
@@ -41,8 +37,8 @@ const Panel = () => {
             <p className="hidden lg:block font-medium">Корзина</p>
           </Link>
 
-          {totalPrice && <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
-            {totalPrice} <span className="text-[10px] ml-1">грн</span>
+          {<div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
+            0<span className="text-[10px] ml-1">грн</span>
           </div>}
         </div>
       </div>

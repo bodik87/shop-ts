@@ -12,6 +12,7 @@ export const cat_2: iCategory = {
       price: 60,
       brand: "Европа",
       color: "Червоний",
+      quantity: 1,
     },
     {
       id: "2",
@@ -20,6 +21,7 @@ export const cat_2: iCategory = {
       price: 30,
       brand: "Якобз",
       color: "Червоний",
+      quantity: 1,
     },
     {
       id: "3",
@@ -28,6 +30,7 @@ export const cat_2: iCategory = {
       price: 160,
       brand: "Европа",
       color: "Червоний",
+      quantity: 1,
     },
     {
       id: "4",
@@ -36,6 +39,7 @@ export const cat_2: iCategory = {
       price: 230,
       brand: "Якобз",
       color: "Червоний",
+      quantity: 1,
     },
   ],
 };

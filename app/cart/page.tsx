@@ -8,8 +8,6 @@ const Cart = () => {
   const totalPrice = cart && cart.reduce((acc, product) => acc + product.price, 0);
 
   console.log(totalPrice);
-
-
   return (
     <div>
       <h1>Корзина</h1>

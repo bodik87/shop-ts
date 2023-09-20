@@ -3,10 +3,13 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { iProduct } from "../models/models";
+import { UserAuth } from "../context/AuthContext";
 
 type Props = { product: iProduct }
 
 export default function Card({ product }: Props) {
+
+  const { setTotal } = UserAuth();
 
   const handleBuy = (product: iProduct) => {
     const prev: iProduct[] = localStorage.getItem("cart") && JSON.parse(localStorage.cart);

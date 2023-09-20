@@ -7,9 +7,6 @@ const Account = () => {
   const { user, googleSignIn, logOut } = UserAuth();
   const [loading, setLoading] = useState(true);
 
-  console.log(user);
-
-
   const handleSignIn = async () => {
     try {
       await googleSignIn();
