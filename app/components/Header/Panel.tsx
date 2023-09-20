@@ -53,9 +53,9 @@ const Panel = () => {
             <p className="hidden lg:block font-medium">Корзина</p>
           </Link>
 
-          <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
+          {totals > 0 && <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
             {totals}<span className="text-[10px] ml-1">грн</span>
-          </div>
+          </div>}
 
         </div>
       </div>

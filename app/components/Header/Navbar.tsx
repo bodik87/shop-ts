@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   AccountIcon,
   CatalogIcon,
@@ -27,49 +27,47 @@ const Navbar = () => {
 
   return (
     <>
-      <AnimatePresence initial={false}>
-        {burger && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="sm:hidden fixed inset-0 bg-slate-100 z-40">
-            <div className="h-full p-6 flex flex-col items-center text-lg">
-              <button className="my-5 ml-auto" onClick={() => setBurger(false)}>
-                <CloseIcon />
-              </button>
+      {burger && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          className="sm:hidden fixed inset-0 bg-slate-100 z-40">
+          <div className="h-full p-6 flex flex-col items-center text-lg">
+            <button className="my-5 ml-auto" onClick={() => setBurger(false)}>
+              <CloseIcon />
+            </button>
 
-              <Link
-                href="/payment-and-delivery"
-                className="py-3"
-                onClick={() => setBurger(false)}
-              >
-                Доставка и оплата
-              </Link>
-              <Link
-                href="/about"
-                className="py-3"
-                onClick={() => setBurger(false)}
-              >
-                Про нас
-              </Link>
-              <Link
-                href="/contacts"
-                className="py-3"
-                onClick={() => setBurger(false)}
-              >
-                Контакти
-              </Link>
+            <Link
+              href="/payment-and-delivery"
+              className="py-3"
+              onClick={() => setBurger(false)}
+            >
+              Доставка и оплата
+            </Link>
+            <Link
+              href="/about"
+              className="py-3"
+              onClick={() => setBurger(false)}
+            >
+              Про нас
+            </Link>
+            <Link
+              href="/contacts"
+              className="py-3"
+              onClick={() => setBurger(false)}
+            >
+              Контакти
+            </Link>
 
-              <div className="mt-auto flex flex-col gap-3">
-                <a href="tel:+380660984114">{`+38(066) 098-41-14`}</a>
-                <a href="tel:+380672785349">{`+38(067) 278-53-49`}</a>
-              </div>
+            <div className="mt-auto flex flex-col gap-3">
+              <a href="tel:+380660984114">{`+38(066) 098-41-14`}</a>
+              <a href="tel:+380672785349">{`+38(067) 278-53-49`}</a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </motion.div>
+      )}
 
       <nav className="bg-slate-200">
         <div className="max-w-7xl w-full pr-4 sm:pr-6 mx-auto flex justify-between items-center">
@@ -94,36 +92,34 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <AnimatePresence initial={false}>
-              {catalog && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  onClick={() => setCatalog(false)}
-                  className="fixed inset-0 w-full bg-black/30 z-20"
-                >
-                  <div className="max-w-7xl mx-auto">
-                    <div className="mt-[76px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-lg rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
-                      <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
-                        {categories.map((category) => (
-                          <Link
-                            key={category.id}
+            {catalog && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                onClick={() => setCatalog(false)}
+                className="fixed inset-0 w-full bg-black/30 z-20"
+              >
+                <div className="max-w-7xl mx-auto">
+                  <div className="mt-[76px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-lg rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
+                    <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
+                      {categories.map((category) => (
+                        <Link
+                          key={category.id}
 
-                            href={`/categories/${category.id}`}
-                            className="py-6 px-6 text-left transition-all hover:bg-red-600"
-                            onClick={() => setCatalog(false)}
-                          >
-                            {category.title}
-                          </Link>
-                        ))}
-                      </div>
+                          href={`/categories/${category.id}`}
+                          className="py-6 px-6 text-left transition-all hover:bg-red-600"
+                          onClick={() => setCatalog(false)}
+                        >
+                          {category.title}
+                        </Link>
+                      ))}
                     </div>
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                </div>
+              </motion.div>
+            )}
           </div>
 
 

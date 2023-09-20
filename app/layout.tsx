@@ -4,8 +4,9 @@ import { Roboto } from "next/font/google";
 
 import Footer from './components/Footer';
 import ButtonUp from "./components/ButtonUp";
-import './globals.css'
 import Header from "./components/Header/Header";
+import Hydration from "./components/Hydration";
+import './globals.css'
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
 
@@ -31,12 +32,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <AuthContextProvider>
         <body className={`${roboto.className} flex flex-col min-h-screen`}>
-          <ButtonUp />
-          <Header />
-          <main className="max-w-7xl w-full mx-auto mt-[140px] px-3 sm:px-6 py-5">
-            {children}
-          </main>
-          <Footer />
+          <Hydration>
+            <ButtonUp />
+            <Header />
+            <main className="max-w-7xl w-full mx-auto mt-[140px] px-3 sm:px-6 py-5">
+              {children}
+            </main>
+            <Footer />
+          </Hydration>
         </body>
       </AuthContextProvider>
     </html>
