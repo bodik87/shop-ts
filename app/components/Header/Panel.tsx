@@ -1,12 +1,25 @@
 "use client";
 import Link from "next/link";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CartIcon, SearchIcon } from "../Icons";
 import { useCartStore } from "@/app/store/cart";
+import { iProduct } from "@/app/models/models";
 
 const Panel = () => {
+  const [totals, setTotals] = useState(0)
+  const cartStore = useCartStore();
+  const totalPrice = (cart: iProduct[]) => {
+    return cart.reduce((acc, item) => {
+      return acc + item.price * item.quantity;
+    }, 0);
+  };
 
-  const { count } = useCartStore()
+  const total = totalPrice(cartStore.cart);
+
+  useEffect(() => {
+    setTotals(total);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cartStore]);
 
   return (
     <header className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
@@ -40,10 +53,10 @@ const Panel = () => {
             <p className="hidden lg:block font-medium">Корзина</p>
           </Link>
 
-          {count > 0 &&
-            <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
-              {count}<span className="text-[10px] ml-1">грн</span>
-            </div>}
+          <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
+            {totals}<span className="text-[10px] ml-1">грн</span>
+          </div>
+
         </div>
       </div>
     </header>

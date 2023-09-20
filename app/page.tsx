@@ -1,4 +1,3 @@
-"use client"
 import Card from "./components/Card";
 import { HomePageCarousel } from "./components/HomePageCarousel";
 import Grid from "./components/Grid";

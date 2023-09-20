@@ -10,11 +10,19 @@ import Header from "./components/Header/Header";
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://website.com'),
   title: 'Магазин',
   description: 'Інтернет магазин товарів',
   openGraph: {
     title: "Класна річ",
     description: "Мені попався класний товар",
+    images: [
+      {
+        url: '/good.webp',
+        width: 800,
+        height: 600,
+        alt: 'My custom alt',
+      },]
   },
 }
 

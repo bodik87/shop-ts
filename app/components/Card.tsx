@@ -3,10 +3,13 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { iProduct } from "../models/models";
+import { useCartStore } from "../store/cart";
 
 type Props = { product: iProduct }
 
 export default function Card({ product }: Props) {
+
+  const cartStore = useCartStore();
 
   return (
     <div className="mt-2 w-full object-contain relative rounded-lg">
@@ -40,7 +43,7 @@ export default function Card({ product }: Props) {
           </div>
         </div>
 
-        <button className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
+        <button onClick={() => cartStore.addToCart(product)} className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
           Купити
         </button>
       </div>
