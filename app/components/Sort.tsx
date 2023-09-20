@@ -5,17 +5,17 @@ import { SortIcon } from "@/app/components/Icons";
 import { iProduct } from '../models/models';
 
 type Props = {
-  data: iProduct[],
+  data: iProduct[] | undefined,
   sortModal: boolean,
   setSortModal: (value: boolean) => void,
   setSortedProducts: (value: iProduct[]) => void,
 }
 
-const Sort = ({ data,
-  sortModal, setSortModal, setSortedProducts }: Props) => {
-  const priceIncr = sort(data).asc(el => el.price);
-  const priceDecr = sort(data).desc(el => el.price);
-  // const sortedByRating = sort(sortedProducts).asc(el => el.parametrs.rating);
+const sortParametrs = []
+
+const Sort = ({ data, sortModal, setSortModal, setSortedProducts }: Props) => {
+  const priceIncr = data && sort(data).asc(el => el.price);
+  const priceDecr = data && sort(data).desc(el => el.price);
 
   return (
     <>
@@ -41,12 +41,16 @@ const Sort = ({ data,
                 <h2 className='p-4 text-center bg-slate-100'>Сортування</h2>
 
                 <div className="flex flex-col">
-                  <button className="px-8 py-3 hover:bg-gray-100 transition-all" onClick={() => { setSortedProducts(priceIncr), setSortModal(false) }}>
+                  <button
+                    className="px-8 py-3 hover:bg-gray-100 transition-all"
+                    onClick={() => { priceIncr && setSortedProducts(priceIncr), setSortModal(false) }}>
                     від дешевих до дорогих
                   </button>
-                  <button className="px-8 py-3 hover:bg-gray-100 transition-all" onClick={() => { setSortedProducts(priceDecr), setSortModal(false) }}>від дорогих до дешевих
-                  </button>
-                  <button className="px-8 py-3 hover:bg-gray-100 transition-all" onClick={() => { setSortedProducts(priceIncr), setSortModal(false) }}>за рейтингом
+
+                  <button
+                    className="px-8 py-3 hover:bg-gray-100 transition-all"
+                    onClick={() => { priceDecr && setSortedProducts(priceDecr), setSortModal(false) }}>
+                    від дорогих до дешевих
                   </button>
                 </div>
               </motion.div>

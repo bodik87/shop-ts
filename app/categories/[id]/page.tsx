@@ -3,30 +3,35 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Card from "../../components/Card";
 import Grid from "@/app/components/Grid";
-import { categories, products } from "@/app/data/categories";
-import { iProduct } from "@/app/models/models";
 import Sort from "@/app/components/Sort";
-import Filter from "@/app/components/Filter";
+import { cat_1 } from "@/app/data/categories/cat_1";
+import { cat_2 } from "@/app/data/categories/cat_2";
+import { categories } from "@/app/data/categories/categories";
+// import Filter from "@/app/components/Filter";
 
 
 const Category = () => {
   const { id } = useParams();
-  const data: iProduct[] = products.filter(product => product.categoryId === id)
-  const categoriyTitle = categories.filter(category => category.id === id)[0].title
+
+  const getCurrentCategory = () => {
+    switch (id) {
+      case categories[0].id:
+        return cat_1
+      case categories[1].id:
+        return cat_2
+    }
+  }
+
+  const currentCategory = getCurrentCategory()
+  const [sortedProducts, setSortedProducts] = useState(currentCategory?.products);
 
   const [sortModal, setSortModal] = useState(false);
-  const [sortedProducts, setSortedProducts] = useState(data);
-
   const [filterModal, setFilterModal] = useState(false);
-
-
 
   useEffect(() => {
     if (sortModal || filterModal) window.document.body.style.overflow = "hidden";
     else window.document.body.style.overflow = "auto";
   }, [sortModal, filterModal]);
-
-
 
   return (
     <>
@@ -38,19 +43,19 @@ const Category = () => {
             setSortModal={setSortModal}
             setSortedProducts={setSortedProducts} />
 
-          <Filter
+          {/* <Filter
             data={data}
             filterModal={filterModal}
             setFilterModal={setFilterModal}
-            setSortedProducts={setSortedProducts} />
+            setSortedProducts={setSortedProducts} /> */}
         </div>
       </div>
 
-      <Grid gridTitle={categoriyTitle}>
-        {sortedProducts.map((product) => <Card key={product.id} product={product} />)}
+      <Grid gridTitle={currentCategory?.title}>
+        {sortedProducts?.map((product) => <Card key={product.id} product={product} />)}
       </Grid >
     </>
   )
-}
+};
 
 export default Category

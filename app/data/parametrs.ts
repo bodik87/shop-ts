@@ -1,6 +1,6 @@
 export const sortingBy = ["cheapToExpensive", "expensiveToCheap", "rating"];
 
-export const parametrs: any = {
+export const parametrs = {
   brand: "Бренд",
   size: "Розмір",
   color: "Колір",

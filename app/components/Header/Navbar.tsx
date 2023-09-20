@@ -11,7 +11,7 @@ import {
   MenuIcon,
   SearchIcon,
 } from "../Icons";
-import { categories } from "../../data/categories";
+import { categories } from "../../data/categories/categories";
 
 
 const Navbar = () => {
@@ -115,7 +115,7 @@ const Navbar = () => {
                             className="py-6 px-6 text-left transition-all hover:bg-red-600"
                             onClick={() => setCatalog(false)}
                           >
-                            {category.id}. {category.title}
+                            {category.title}
                           </Link>
                         ))}
                       </div>

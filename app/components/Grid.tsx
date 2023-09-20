@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {
   children: React.ReactNode,
-  gridTitle: string
+  gridTitle: string | undefined
   // grid: boolean
   // setGrid: (value: boolean) => void
 }

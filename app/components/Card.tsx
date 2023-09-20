@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
@@ -6,42 +7,63 @@ import { iProduct } from "../models/models";
 type Props = { product: iProduct }
 
 export default function Card({ product }: Props) {
- return (
-  <div className="mt-2 w-full object-contain relative rounded-lg">
-   <Link href={`/products/${product.id}`}>
-    <div className="h-[250px] relative overflow-hidden">
-     <Image
-      src={product.images[0]}
-      alt={product.title}
-      width={600}
-      height={700}
-      className="object-contain rounded-t-lg w-full h-full bg-white"
-      priority
-      quality={100}
-     />
-    </div>
-   </Link>
 
-   <div className="mt-2 text-sm lg:text-base">
-    <h3 className="px-2">{product.title}</h3>
+  const handleBuy = (product: iProduct) => {
+    const prev: iProduct[] = localStorage.getItem("cart") && JSON.parse(localStorage.cart);
 
-    <div className="flex px-2 text-lg font-medium">
-     {product.oldPrice && (
-      <div className="mr-2 opacity-50">
-       <span className="line-through">{product.oldPrice}</span>
-       <span className="text-sm"> грн</span>
+    if (prev) {
+      const existingItem = prev.find(item => item.id === product.id)
+
+      if (existingItem) {
+        const updatedItems = prev.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+        localStorage.setItem("cart", JSON.stringify(updatedItems))
+      } else {
+        localStorage.setItem("cart", JSON.stringify([...prev, product]))
+
+      }
+    } else {
+      localStorage.setItem("cart", JSON.stringify([product]))
+    }
+  }
+
+  return (
+    <div className="mt-2 w-full object-contain relative rounded-lg">
+      <Link href={`/products/${product.id}`}>
+        <div className="h-[250px] relative overflow-hidden">
+          <Image
+            src={product.images[0]}
+            alt={product.title}
+            width={600}
+            height={700}
+            className="object-contain rounded-t-lg w-full h-full bg-white"
+            priority
+            quality={100}
+          />
+        </div>
+      </Link>
+
+      <div className="mt-2 text-sm lg:text-base">
+        <h3 className="px-2">{product.title}</h3>
+
+        <div className="flex px-2 text-lg font-medium">
+          {product.oldPrice && (
+            <div className="mr-2 opacity-50">
+              <span className="line-through">{product.oldPrice}</span>
+              <span className="text-sm"> грн</span>
+            </div>
+          )}
+          <div>
+            {product.price}
+            <span className="text-sm"> грн</span>
+          </div>
+        </div>
+
+        <button onClick={() => handleBuy(product)} className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
+          Купити
+        </button>
       </div>
-     )}
-     <div>
-      {product.price}
-      <span className="text-sm"> грн</span>
-     </div>
     </div>
-
-    <button className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
-     Купити
-    </button>
-   </div>
-  </div>
- );
+  );
 }

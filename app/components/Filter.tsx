@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { FilterIcon } from "@/app/components/Icons";
 import { iProduct } from '../models/models';
@@ -26,6 +26,25 @@ const Filter = ({ data, filterModal, setFilterModal, setSortedProducts }: Props)
   const availableFilters = Object.keys(parametrs)
     .filter(parametr =>
       Object.keys(filters).includes(parametr))
+
+  // console.log(filters);
+
+  ////////////////////
+
+  const [selectedFilter, setSelectedFilter] = useState<any>({ brand: [] })
+
+  const toggleFilter = (key: string, value: string) => {
+    setSelectedFilter((prev) => { if (key === "brand") prev.brand = value }
+    )
+  }
+  // const toggleFilter = (key: string, value: string) => {
+  //   setSelectedFilter((prev) =>
+  //     prev.includes(value) ? prev.filter((el) => el !== value) : [...prev, value]
+  //   )
+  // }
+
+  console.log(selectedFilter);
+
 
   return (
     <>
@@ -60,10 +79,11 @@ const Filter = ({ data, filterModal, setFilterModal, setSortedProducts }: Props)
                     <div className='flex flex-col gap-4 text-lg'>
                       {filters[filter].map((item: string) =>
                       (<div key={item} className='flex gap-2 items-center leading-none'>
-                        <input type="checkbox" id={item} />
-                        <label htmlFor={item}>{item}</label>
+                        <input type="checkbox" id={item} value={item} />
+                        <label onClick={() => toggleFilter(filter, item)} htmlFor={item}>{item}</label>
                       </div>
-                      ))}
+                      )
+                      )}
                     </div>
                   </div>
                 ))}
