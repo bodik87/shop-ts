@@ -6,12 +6,13 @@ import { motion } from "framer-motion";
 import {
   AccountIcon,
   CatalogIcon,
+  ChevronArrow,
   CloseIcon,
   FavoritesIcon,
   MenuIcon,
   SearchIcon,
 } from "../Icons";
-import { categories } from "../../data/categories/categories";
+import { categories } from "../../data/variables";
 
 
 const Navbar = () => {
@@ -69,24 +70,25 @@ const Navbar = () => {
       )}
 
       <nav className="bg-slate-200">
-        <div className="max-w-7xl w-full pr-4 sm:pr-6 mx-auto flex justify-between items-center">
-          <div className="flex gap-5 items-center">
+        <div className="max-w-7xl w-full pr-4 md:pl-4 sm:pr-6 mx-auto flex justify-between items-center">
+          <div className="flex gap-5 items-center py-1 pl-1">
             <button
               onClick={() => setCatalog(!catalog)}
-              className="bg-red-500 text-white py-2 px-4 rounded-tr-lg xl:rounded-t-lg flex gap-3 items-center transition-all hover:bg-red-600 z-30"
+              className="bg-slate-100 border border-gray-300 py-2 px-4 rounded-lg flex gap-3 items-center transition-all z-30 shadow-sm hover:bg-slate-50"
             >
               <CatalogIcon />
               <span className="font-medium text-lg">Каталог</span>
+              <ChevronArrow />
             </button>
 
-            <div className="hidden sm:flex gap-6 text-sm lg:text-base">
-              <Link href="/payment-and-delivery">
+            <div className="hidden sm:flex gap-1 text-sm lg:text-base">
+              <Link href="/payment-and-delivery" className="rounded-lg transition-all hover:bg-slate-100 py-2 px-4">
                 Доставка и оплата
               </Link>
-              <Link href="/about">
+              <Link href="/about" className="rounded-lg transition-all hover:bg-slate-100 py-2 px-4">
                 Про нас
               </Link>
-              <Link href="/contacts">
+              <Link href="/contacts" className="rounded-lg transition-all hover:bg-slate-100 py-2 px-4">
                 Контакти
               </Link>
             </div>
@@ -100,14 +102,14 @@ const Navbar = () => {
                 className="fixed inset-0 w-full bg-black/30 z-20"
               >
                 <div className="max-w-7xl mx-auto">
-                  <div className="mt-[76px] max-w-xs w-full max-h-[500px] bg-red-500 rounded-lg rounded-tl-none overflow-hidden text-white shadow-2xl z-30">
+                  <div className="mt-[86px] ml-1 md:ml-5 max-w-[260px] w-full max-h-[500px] bg-white rounded-lg overflow-hidden shadow-2xl z-30 p-1.5">
                     <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
                       {categories.map((category) => (
                         <Link
                           key={category.id}
 
                           href={`/categories/${category.id}`}
-                          className="py-6 px-6 text-left transition-all hover:bg-red-600"
+                          className="py-4 px-4 text-left transition-all hover:bg-slate-200 rounded-md"
                           onClick={() => setCatalog(false)}
                         >
                           {category.title}
@@ -122,14 +124,14 @@ const Navbar = () => {
 
 
           <div className="flex gap-1 lg:gap-2">
-            <button className="block sm:hidden p-2">
+            <button className="block sm:hidden p-2" >
               <SearchIcon />
             </button>
-            <Link href={`/favorites`} className="p-2 flex gap-2 items-center">
+            <Link href={`/favorites`} className="p-2 flex gap-2 items-center rounded-lg transition-all hover:bg-slate-100">
               <FavoritesIcon active={pathname === "/favorites"} />
               <span className="hidden lg:block">Обране</span>
             </Link>
-            <Link href={`/account`} className="p-2 flex gap-2 items-center">
+            <Link href={`/account`} className="p-2 flex gap-2 items-center rounded-lg transition-all hover:bg-slate-100">
               <AccountIcon />
             </Link>
             <button

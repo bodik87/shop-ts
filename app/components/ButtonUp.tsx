@@ -15,7 +15,7 @@ export default function ButtonUp() {
   const { scrollY }: any = useScroll();
 
   useMotionValueEvent(scrollY, "change", () => {
-    if (scrollY.current > 300) {
+    if (scrollY.current > 250) {
       setShow(true);
     } else {
       setShow(false);

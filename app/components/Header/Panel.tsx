@@ -23,9 +23,9 @@ const Panel = () => {
 
   return (
     <header className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
-      <div className="max-w-7xl w-full h-16 px-4 sm:px-6 mx-auto flex justify-between items-center gap-4">
-        <Link href="/">
-          LOGO
+      <div className="max-w-7xl w-full h-14 px-4 sm:px-6 mx-auto flex justify-between items-center gap-4">
+        <Link href="/" className="font-bold">
+          МАГАЗИН
         </Link>
 
         <div className="hidden sm:block max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300">
@@ -47,7 +47,7 @@ const Panel = () => {
         <div className="relative">
           <Link
             href={`/cart`}
-            className="bg-yellow-300 h-11 px-5 rounded-lg flex justify-center items-center gap-2 transition-all hover:bg-yellow-400"
+            className="bg-slate-50 border border-gray-300 h-11 px-5 rounded-lg flex justify-center items-center gap-2 transition-all shadow-sm hover:bg-white active:bg-slate-100"
           >
             <CartIcon />
             <p className="hidden lg:block font-medium">Корзина</p>

@@ -1,5 +1,5 @@
 import { iCategory } from "@/app/models/models";
-import { categories } from "./categories";
+import { categories } from "../variables";
 
 export const cat_2: iCategory = {
   id: "2",

@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { ArrowIcon } from "./Icons";
-import { promos } from "../data/promos";
+import { promos } from "../data/variables";
 import Link from "next/link";
 
 export const HomePageCarousel = () => {

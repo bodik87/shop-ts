@@ -1,5 +1,6 @@
 "use client";
 import { ReactNode, useEffect, useState } from "react";
+import Spinner from "./Spinner";
 
 export default function Hydration({ children }: { children: ReactNode }) {
   const [isHydrdated, setIsHydrated] = useState(false);
@@ -11,11 +12,16 @@ export default function Hydration({ children }: { children: ReactNode }) {
   return (
     <>
       {isHydrdated ? (
-        <>{children}</>
+        <>
+          {children}
+        </>
       ) : (
-        <div className="h-screen flex items-center justify-center mx-0">
-          <h1 className="text-3xl font-bold text-primary">Завантаження</h1>
-        </div>
+        <>
+          <div className="fixed inset-0 bg-white backdrop-blur-xl z-50 flex items-center justify-center" >
+            <Spinner />
+          </div>
+          {children}
+        </>
       )}
     </>
   );

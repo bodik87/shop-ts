@@ -5,3 +5,17 @@ export const promos = [
   { id: 4, title: "Акція 4", slideImage: "/mainSlider/1.jpg" },
   { id: 5, title: "Акція 5", slideImage: "/mainSlider/1.jpg" },
 ];
+
+export const sortingBy = ["cheapToExpensive", "expensiveToCheap", "rating"];
+
+export const parametrs = {
+  brand: "Бренд",
+  size: "Розмір",
+  color: "Колір",
+  rating: "Рейтинг",
+};
+
+export const categories = [
+  { id: "1", title: "Кава" },
+  { id: "2", title: "Чай" },
+];

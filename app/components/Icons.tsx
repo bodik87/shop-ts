@@ -33,7 +33,7 @@ export function CartIcon() {
   );
 }
 
-export function FavoritesIcon({ active }: any) {
+export function FavoritesIcon({ active }: { active: boolean }) {
   return (
     <svg
       width="24"
@@ -66,7 +66,7 @@ export function CatalogIcon() {
     >
       <path
         d="M16 5.99983V4.28415C16 3.51563 16 3.13137 15.8387 2.88297C15.6976 2.66563 15.4776 2.51156 15.2252 2.45321C14.9366 2.38653 14.5755 2.51785 13.8532 2.78048L6.57982 5.42536C6.01064 5.63233 5.72605 5.73582 5.51615 5.91821C5.33073 6.07932 5.18772 6.28349 5.09968 6.5128C5 6.7724 5 7.07522 5 7.68086V11.9998M9 16.9998H15M9 13.4998H15M9 9.99983H15M8.2 20.9998H15.8C16.9201 20.9998 17.4802 20.9998 17.908 20.7818C18.2843 20.5901 18.5903 20.2841 18.782 19.9078C19 19.48 19 18.9199 19 17.7998V9.19983C19 8.07973 19 7.51968 18.782 7.09185C18.5903 6.71553 18.2843 6.40957 17.908 6.21782C17.4802 5.99983 16.9201 5.99983 15.8 5.99983H8.2C7.0799 5.99983 6.51984 5.99983 6.09202 6.21782C5.71569 6.40957 5.40973 6.71553 5.21799 7.09185C5 7.51968 5 8.07973 5 9.19983V17.7998C5 18.9199 5 19.48 5.21799 19.9078C5.40973 20.2841 5.71569 20.5901 6.09202 20.7818C6.51984 20.9998 7.07989 20.9998 8.2 20.9998Z"
-        stroke="white"
+        stroke="black"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -192,6 +192,12 @@ export function UPArrow() {
 
 export function DotsArrow() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#3A3F3E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m21 5-2 7H7.377M20 16H8L6 3H3m8 0 2.5 2.5m0 0L16 8m-2.5-2.5L16 3m-2.5 2.5L11 8M9 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm11 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m6 6 12 12m0-12L6 18" /></svg>
+  );
+}
+
+export function ChevronArrow() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m12 6-4 4-4-4" /></svg>
   );
 }

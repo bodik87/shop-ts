@@ -14,7 +14,7 @@ const Header = () => {
 
  useMotionValueEvent(scrollY, "change", (latest: any) => {
   const previousScrollY = scrollY.getPrevious();
-  if (latest > previousScrollY && scrollY.current > 300) {
+  if (latest > previousScrollY && scrollY.current > 200) {
    setScrollUp(false);
   } else {
    setScrollUp(true);
