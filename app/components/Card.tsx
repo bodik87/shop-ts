@@ -56,9 +56,11 @@ export default function Card({ product }: Props) {
           disabled={purchased}
           onClick={() => !purchased && cartStore.addToCart(product)}
           className={`${purchased ? "border-2 border-slate-300" : "bg-color_1 text-white"} w-full h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700 disabled:hover:bg-transparent`}>
-          {purchased
-            ? <span className="inline-flex items-center gap-2">
-              <CartIcon />Вже в кошику</span>
+          {purchased ?
+            <span className="inline-flex items-center gap-2 whitespace-nowrap">
+              <CartIcon />
+              Вже в кошику
+            </span>
             : "Купити"}
         </button>}
       </div>

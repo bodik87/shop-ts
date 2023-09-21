@@ -1,21 +1,15 @@
 "use client"
-import React, { useEffect, useState } from "react";
-import Email from "../Email";
-import { iProduct } from "../models/models";
-import { useCartStore } from "../store/cart";
 import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useCartStore } from "../store/cart";
+import Email from "../Email";
 import { DeleteIcon } from "../components/Icons";
 import { HomePageCarousel } from "../components/HomePageCarousel";
+import { totalPrice } from "../utils/totalPrice";
 
 const Cart = () => {
   const cartStore = useCartStore();
-  const totalPrice = (cart: iProduct[]) => {
-    return cart.reduce((acc, item) => {
-      return acc + item.price * item.quantity;
-    }, 0);
-  };
-
   const total = totalPrice(cartStore.cart);
 
   const [isClient, setIsClient] = useState(false)

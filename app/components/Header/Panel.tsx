@@ -3,22 +3,16 @@ import Link from "next/link";
 import React, { useEffect, useState } from 'react'
 import { CartIcon, CatalogIcon, ChevronIcon, SearchIcon } from "../Icons";
 import { useCartStore } from "@/app/store/cart";
-import { iProduct } from "@/app/models/models";
 import SearchMenu from "./Navbar/SearchMenu";
 import CatalogMenu from "./Navbar/CatalogMenu";
+import { totalPrice } from "@/app/utils/totalPrice";
 
 const Panel = () => {
   const cartStore = useCartStore();
+  const total = totalPrice(cartStore.cart);
+
   const [catalog, setCatalog] = useState(false);
   const [search, setSearch] = useState(false);
-
-  const totalPrice = (cart: iProduct[]) => {
-    return cart.reduce((acc, item) => {
-      return acc + item.price * item.quantity;
-    }, 0);
-  };
-
-  const total = totalPrice(cartStore.cart);
 
   useEffect(() => {
     if (catalog || search) window.document.body.style.overflow = "hidden";
@@ -66,14 +60,13 @@ const Panel = () => {
               <span className="font-medium">Кошик</span>
             </Link>
 
-            {isClient &&
-              <>
-                {total &&
-                  <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
-                    {total}
-                    <span className="text-[10px] ml-1">грн</span>
-                  </div>}
-              </>}
+            <>
+              {isClient && total > 0 &&
+                <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
+                  {total}
+                  <span className="text-[10px] ml-1">грн</span>
+                </div>}
+            </>
           </div>
         </div>
       </div>
