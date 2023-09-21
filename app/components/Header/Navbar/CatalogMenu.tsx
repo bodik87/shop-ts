@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { motion } from "framer-motion";
 import { categories } from '@/app/data/variables';
+import { useUIStore } from '@/app/store/ui';
 
 type Props = {
  catalog: boolean
@@ -9,6 +10,7 @@ type Props = {
 }
 
 const CatalogMenu = ({ catalog, setCatalog }: Props) => {
+ const uiStore = useUIStore();
  return (
   <>
    {catalog && (
@@ -16,7 +18,10 @@ const CatalogMenu = ({ catalog, setCatalog }: Props) => {
      initial={{ opacity: 0 }}
      animate={{ opacity: 1 }}
      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-     onClick={() => setCatalog(false)}
+     onClick={() => {
+      uiStore.closed(),
+       setCatalog(false)
+     }}
      className="fixed inset-0 w-full bg-black/30 z-20"
     >
      <div className="max-w-7xl mx-auto">
@@ -28,7 +33,10 @@ const CatalogMenu = ({ catalog, setCatalog }: Props) => {
 
           href={`/categories/${category.id}`}
           className="py-4 px-4 text-left transition-all hover:bg-slate-200 rounded-md"
-          onClick={() => setCatalog(false)}
+          onClick={() => {
+           uiStore.closed(),
+            setCatalog(false)
+          }}
          >
           {category.title}
          </Link>

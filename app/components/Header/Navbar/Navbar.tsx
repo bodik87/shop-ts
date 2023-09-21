@@ -13,6 +13,7 @@ import {
 import BurgerMenu from "./BurgerMenu";
 import CatalogMenu from "./CatalogMenu";
 import SearchMenu from "./SearchMenu";
+import { useUIStore } from "@/app/store/ui";
 
 
 const Navbar = () => {
@@ -26,17 +27,22 @@ const Navbar = () => {
   }, [burger, catalog, search]);
 
   const pathname = usePathname();
+  const uiStore = useUIStore();
 
   return (
     <>
       <BurgerMenu burger={burger} setBurger={setBurger} />
       <SearchMenu search={search} setSearch={setSearch} />
+      <CatalogMenu catalog={catalog} setCatalog={setCatalog} />
 
       <nav className="bg-slate-200">
         <div className="max-w-7xl w-full pr-4 sm:pl-4 sm:pr-6 mx-auto flex justify-between items-center">
           <div className="flex gap-5 items-center py-1 pl-1">
             <button
-              onClick={() => setCatalog(!catalog)}
+              onClick={() => {
+                uiStore.opened()
+                setCatalog(!catalog)
+              }}
               className="bg-slate-100 border border-gray-300 py-2 px-3 rounded-lg flex gap-3 items-center transition-all shadow-sm hover:bg-slate-50"
             >
               <CatalogIcon />
@@ -56,7 +62,6 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <CatalogMenu catalog={catalog} setCatalog={setCatalog} />
           </div>
 
           <div className="flex gap-1 lg:gap-2">
