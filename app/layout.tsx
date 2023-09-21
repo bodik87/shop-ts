@@ -1,13 +1,11 @@
 import { AuthContextProvider } from "./context/AuthContext";
 import type { Metadata } from 'next'
 import { Roboto } from "next/font/google";
-
 import Footer from './components/Footer';
 import ButtonUp from "./components/ButtonUp";
 import Header from "./components/Header/Header";
 import Hydration from "./components/Hydration";
 import './globals.css'
-import Main from "./components/Main";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
 
@@ -36,9 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Hydration>
             <ButtonUp />
             <Header />
-            <Main>
+            <main className="max-w-7xl w-full mx-auto mt-[150px] px-3 sm:px-6 py-5">
               {children}
-            </Main>
+            </main>
             <Footer />
           </Hydration>
         </body>

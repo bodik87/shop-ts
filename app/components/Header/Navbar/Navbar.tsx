@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BurgerMenu from "./BurgerMenu";
+import CatalogMenu from "./CatalogMenu";
+import SearchMenu from "./SearchMenu";
 import {
   AccountIcon,
   CatalogIcon,
@@ -10,10 +13,6 @@ import {
   MenuIcon,
   SearchIcon,
 } from "../../Icons";
-import BurgerMenu from "./BurgerMenu";
-import CatalogMenu from "./CatalogMenu";
-import SearchMenu from "./SearchMenu";
-import { useUIStore } from "@/app/store/ui";
 
 
 const Navbar = () => {
@@ -27,7 +26,6 @@ const Navbar = () => {
   }, [burger, catalog, search]);
 
   const pathname = usePathname();
-  const uiStore = useUIStore();
 
   return (
     <>
@@ -39,10 +37,7 @@ const Navbar = () => {
         <div className="max-w-7xl w-full pr-4 sm:pl-4 sm:pr-6 mx-auto flex justify-between items-center">
           <div className="flex gap-5 items-center py-1 pl-1">
             <button
-              onClick={() => {
-                uiStore.opened()
-                setCatalog(!catalog)
-              }}
+              onClick={() => { setCatalog(!catalog) }}
               className="bg-slate-100 border border-gray-300 py-2 px-3 rounded-lg flex gap-3 items-center transition-all shadow-sm hover:bg-slate-50"
             >
               <CatalogIcon />
