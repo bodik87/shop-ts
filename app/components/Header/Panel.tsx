@@ -57,7 +57,7 @@ const Panel = () => {
               className="panelBtn"
             >
               <CartIcon />
-              <span className="hidden lg:block font-medium">Кошик</span>
+              <span className="font-medium">Кошик</span>
             </Link>
 
             {totals > 0 && <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
