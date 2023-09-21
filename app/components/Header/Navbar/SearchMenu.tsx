@@ -37,18 +37,20 @@ const SearchMenu = ({ search, setSearch }: Props) => {
           className="fixed inset-0 w-full bg-black/50 z-20"
         >
           <div className="max-w-7xl mx-auto flex justify-center">
-            <div onClick={(e) => e.stopPropagation()} className="p-3 mt-[86px] max-w-xs mx-3 w-full bg-white rounded-xl shadow-2xl z-30">
-
-              <div className="max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300">
+            <div onClick={(e) => e.stopPropagation()} className="p-5 mt-[80px] max-w-xs mx-3 w-full bg-white rounded-xl shadow-2xl z-30">
+              <div className="max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300 shadow-md">
                 <input
                   type="text"
-                  placeholder="Пошук"
+                  placeholder="Введіть назву товару"
                   autoFocus={true}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="h-10 max-w-xs w-full pl-4 pr-20 bg-gray-50 rounded-lg outline-none block focus:bg-white"
+                  className="h-12 max-w-xs w-full pl-4 pr-20 bg-gray-50 rounded-lg outline-none block focus:bg-white"
                 />
-                <button disabled={!searchQuery} onClick={() => { searchQuery && setSearchQuery("") }} className="bg-slate-200 w-14 h-12 flex justify-center items-center absolute right-0 top-1/2 -translate-y-1/2 transition-all hover:bg-slate-300 disabled:hover:bg-slate-200">
+                <button
+                  disabled={!searchQuery}
+                  onClick={() => { searchQuery && setSearchQuery("") }}
+                  className={`${searchQuery ? " border-slate-300 hover:bg-slate-100" : "border-transparent"} border-l w-12 h-12 flex justify-center items-center absolute right-0 top-1/2 -translate-y-1/2 transition-all `}>
                   {searchQuery ? <DeleteIcon /> : <SearchIcon />}
                 </button>
               </div>
@@ -68,7 +70,6 @@ const SearchMenu = ({ search, setSearch }: Props) => {
                   ))}
                 </div>
               }
-
             </div>
           </div>
         </motion.div>

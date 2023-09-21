@@ -19,6 +19,12 @@
   }
 }
 
+.panelBtn {
+  @apply bg-slate-50 border border-gray-300 py-2 px-3 rounded-lg flex justify-center items-center gap-2 transition-all shadow-sm hover:bg-white active:bg-slate-100;
+}
+
+/* Scrolls */
+
 .scroll_categories {
   @apply h-auto overflow-y-auto;
 }

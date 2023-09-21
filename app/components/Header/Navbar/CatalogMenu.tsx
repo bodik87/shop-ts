@@ -20,7 +20,7 @@ const CatalogMenu = ({ catalog, setCatalog }: Props) => {
      className="fixed inset-0 w-full bg-black/30 z-20"
     >
      <div className="max-w-7xl mx-auto">
-      <div className="mt-[86px] ml-1 md:ml-5 max-w-[260px] w-full max-h-[500px] bg-white rounded-lg overflow-hidden shadow-2xl z-30 p-1.5">
+      <div className="mt-[135px] ml-2 md:ml-5 max-w-[260px] w-full max-h-[500px] bg-white rounded-lg overflow-hidden shadow-2xl z-30 p-1.5">
        <div className="flex flex-col max-h-[500px] overflow-y-auto scroll_categories">
         {categories.map((category) => (
          <Link

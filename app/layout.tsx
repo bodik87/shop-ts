@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Hydration>
             <ButtonUp />
             <Header />
-            <main className="max-w-7xl w-full mx-auto mt-[150px] px-3 sm:px-6 py-5">
+            <main className="max-w-7xl w-full mx-auto mt-[140px] px-3 sm:px-6 py-5">
               {children}
             </main>
             <Footer />

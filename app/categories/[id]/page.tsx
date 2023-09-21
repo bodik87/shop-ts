@@ -37,7 +37,7 @@ const Category = () => {
   return (
     <>
       <section className="flex gap-3 items-center z-10 h-6">
-        <button onClick={() => setShowSort(!showSort)} className="border py-2 px-3 rounded-lg shadow-sm">
+        <button onClick={() => setShowSort(!showSort)} className="border border-gray-300 active:bg-slate-100 py-2 px-3 rounded-lg shadow-sm">
           <SortIcon />
         </button>
 

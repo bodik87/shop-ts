@@ -201,8 +201,15 @@ export function ChevronIcon() {
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m12 6-4 4-4-4" /></svg>
   );
 }
+
 export function InformationIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8h.01M12 11v5m9-4a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+  );
+}
+
+export function PhoneIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5.5C3 14.06 9.94 21 18.5 21c.386 0 .77-.014 1.148-.042.435-.032.653-.048.851-.162a1.06 1.06 0 0 0 .402-.432c.099-.206.099-.446.099-.926v-2.817c0-.404 0-.606-.067-.779a.999.999 0 0 0-.277-.396c-.14-.122-.33-.191-.71-.329l-3.206-1.166c-.441-.16-.662-.24-.872-.227a1 1 0 0 0-.513.182c-.171.121-.292.322-.534.725L14 16a12.1 12.1 0 0 1-6-6l1.369-.821c.402-.242.604-.363.725-.534a1 1 0 0 0 .182-.513c.014-.21-.066-.43-.227-.872L8.883 4.053c-.138-.38-.207-.569-.329-.709a1 1 0 0 0-.396-.278C7.985 3 7.783 3 7.379 3H4.562c-.48 0-.72 0-.926.1a1.06 1.06 0 0 0-.432.401c-.114.198-.13.416-.162.85C3.014 4.732 3 5.115 3 5.5Z" /></svg>
   );
 }
