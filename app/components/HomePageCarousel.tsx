@@ -15,7 +15,7 @@ import Link from "next/link";
 export const HomePageCarousel = () => {
   const swiperRef = useRef<SwiperCore>();
   return (
-    <div className="relative">
+    <section className="relative">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={20}
@@ -44,20 +44,18 @@ export const HomePageCarousel = () => {
           </SwiperSlide>)}
       </Swiper>
 
-      <div className="hidden sm:block">
-        <button
-          onClick={() => swiperRef.current?.slidePrev()}
-          className="absolute top-1/2 -translate-y-1/2 left-3 w-8 h-8 rounded-full bg-white/30 z-10 flex items-center justify-center hover:scale-105 transition-all"
-        >
-          <ArrowIcon />
-        </button>
-        <button
-          onClick={() => swiperRef.current?.slideNext()}
-          className="absolute top-1/2 -translate-y-1/2 rotate-180 right-3 w-8 h-8 rounded-full bg-white/30 z-10 flex items-center justify-center hover:scale-105 transition-all"
-        >
-          <ArrowIcon />
-        </button>
-      </div>
-    </div>
+      <button
+        onClick={() => swiperRef.current?.slidePrev()}
+        className="hidden sm:flex absolute top-1/2 -translate-y-1/2 left-3 w-8 h-8 rounded-full bg-white/30 z-10 items-center justify-center hover:scale-105 transition-all"
+      >
+        <ArrowIcon />
+      </button>
+      <button
+        onClick={() => swiperRef.current?.slideNext()}
+        className="hidden sm:flex absolute top-1/2 -translate-y-1/2 rotate-180 right-3 w-8 h-8 rounded-full bg-white/30 z-10 items-center justify-center hover:scale-105 transition-all"
+      >
+        <ArrowIcon />
+      </button>
+    </section>
   );
 };
