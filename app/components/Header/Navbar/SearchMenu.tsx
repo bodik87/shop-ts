@@ -37,8 +37,10 @@ const SearchMenu = ({ search, setSearch }: Props) => {
           className="fixed inset-0 w-full bg-black/50 z-20"
         >
           <div className="max-w-7xl mx-auto flex justify-center">
-            <div onClick={(e) => e.stopPropagation()} className="p-5 mt-[80px] max-w-xs mx-3 w-full bg-white rounded-xl shadow-2xl z-30">
-              <div className="max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300 shadow-md">
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="p-2 mt-[80px] max-w-xs mx-3 w-full bg-white rounded-xl shadow-2xl z-30">
+              <div className="max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300 shadow-md z-10">
                 <input
                   type="text"
                   placeholder="Введіть назву товару"
@@ -56,12 +58,22 @@ const SearchMenu = ({ search, setSearch }: Props) => {
               </div>
 
               {searchQuery &&
-                <div className="max-w-xs w-full relative rounded-lg overflow-y-auto max-h-[500px]">
+                <div className="max-w-xs w-full relative rounded-lg overflow-y-auto max-h-[300px] scroll_filters">
                   {filteredProducts.map(product => (
 
-                    <Link key={product.id} href={`/products/${product.id}`} className="first:mt-3 px-3 py-2 rounded-lg flex gap-5 odd:bg-gray-50" onClick={() => setSearch(false)}>
-                      <Image width={30} height={70} src={product.images[0]} alt={product.title} />
-
+                    <Link
+                      key={product.id}
+                      href={{
+                        pathname: `/products/${product.id}`,
+                        query: { product: JSON.stringify(product) }
+                      }}
+                      className="first:mt-3 px-3 py-2 rounded-lg flex gap-5 odd:bg-gray-50" onClick={() => setSearch(false)}>
+                      <Image
+                        width={30}
+                        height={70}
+                        src={product.images[0]}
+                        alt={product.title}
+                        style={{ width: 'auto', height: 'auto' }} />
                       <div>
                         <h3>{product.title}</h3>
                         <p>{product.price} грн</p>

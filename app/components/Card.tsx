@@ -1,19 +1,28 @@
 "use client"
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { iProduct } from "../models/models";
 import { useCartStore } from "../store/cart";
+import { CartIcon } from "./Icons";
 
 type Props = { product: iProduct }
 
 export default function Card({ product }: Props) {
-
   const cartStore = useCartStore();
+  const purchased = cartStore.cart.some(item => item.id === product.id)
+
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <div className="mt-2 w-full object-contain relative rounded-lg">
-      <Link href={`/products/${product.id}`}>
+      <Link href={{
+        pathname: `/products/${product.id}`,
+        query: { product: JSON.stringify(product) }
+      }}>
         <div className="h-[250px] relative overflow-hidden">
           <Image
             src={product.images[0]}
@@ -43,9 +52,15 @@ export default function Card({ product }: Props) {
           </div>
         </div>
 
-        <button onClick={() => cartStore.addToCart(product)} className="w-full bg-color_1 text-white h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700">
-          Купити
-        </button>
+        {isClient && <button
+          disabled={purchased}
+          onClick={() => !purchased && cartStore.addToCart(product)}
+          className={`${purchased ? "border-2 border-slate-300" : "bg-color_1 text-white"} w-full h-10 px-8 rounded-lg flex justify-center items-center transition-all hover:bg-green-700 disabled:hover:bg-transparent`}>
+          {purchased
+            ? <span className="inline-flex items-center gap-2">
+              <CartIcon />Вже в кошику</span>
+            : "Купити"}
+        </button>}
       </div>
     </div>
   );

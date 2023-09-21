@@ -8,10 +8,10 @@ import SearchMenu from "./Navbar/SearchMenu";
 import CatalogMenu from "./Navbar/CatalogMenu";
 
 const Panel = () => {
+  const cartStore = useCartStore();
   const [catalog, setCatalog] = useState(false);
   const [search, setSearch] = useState(false);
-  const [totals, setTotals] = useState(0)
-  const cartStore = useCartStore();
+
   const totalPrice = (cart: iProduct[]) => {
     return cart.reduce((acc, item) => {
       return acc + item.price * item.quantity;
@@ -21,14 +21,14 @@ const Panel = () => {
   const total = totalPrice(cartStore.cart);
 
   useEffect(() => {
-    setTotals(total);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartStore]);
-
-  useEffect(() => {
     if (catalog || search) window.document.body.style.overflow = "hidden";
     else window.document.body.style.overflow = "auto";
   }, [catalog, search]);
+
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <>
@@ -37,15 +37,21 @@ const Panel = () => {
 
       <div className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
         <div className="max-w-7xl w-full h-14 px-2 sm:px-6 mx-auto flex justify-between items-center gap-4">
+
           <div className="flex gap-2 sm:gap-4">
-            <button className="panelBtn" onClick={() => { setCatalog(!catalog) }}
+            <button
+              className="panelBtn"
+              onClick={() => { setCatalog(!catalog) }}
+              suppressHydrationWarning={true}
             >
               <CatalogIcon />
               <span className="font-medium text-lg">Каталог</span>
               <ChevronIcon />
             </button>
 
-            <button className={`panelBtn ${search && "opacity-0"}`} onClick={() => setSearch(true)}>
+            <button
+              className={`panelBtn ${search && "opacity-0"}`}
+              onClick={() => setSearch(true)}>
               <SearchIcon />
               <span className="hidden lg:block font-medium">Пошук</span>
             </button>
@@ -60,10 +66,14 @@ const Panel = () => {
               <span className="font-medium">Кошик</span>
             </Link>
 
-            {totals > 0 && <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
-              {totals}<span className="text-[10px] ml-1">грн</span>
-            </div>}
-
+            {isClient &&
+              <>
+                {total &&
+                  <div className="bg-red-500 px-2 rounded-l-xl rounded-tr-xl flex justify-center items-center absolute right-0 -top-3 text-white text-[12px] shadow-md">
+                    {total}
+                    <span className="text-[10px] ml-1">грн</span>
+                  </div>}
+              </>}
           </div>
         </div>
       </div>

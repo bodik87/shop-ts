@@ -1,11 +1,14 @@
-"use client";
-import { useParams } from 'next/navigation';
 import React from 'react'
 
-const ProductPage = () => {
- const { id } = useParams();
+interface Props {
+ searchParams: { product: string }
+}
+
+const ProductPage = ({ searchParams: { product } }: Props) => {
+ const object = JSON.parse(product);
+
  return (
-  <div>Товар {id}</div>
+  <div>{object.title}</div>
  )
 }
 

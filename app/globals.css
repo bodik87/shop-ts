@@ -46,11 +46,11 @@
 }
 
 .scroll_filters::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-1.5;
 }
 
 .scroll_filters::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  @apply bg-transparent my-2;
 }
 
 .scroll_filters::-webkit-scrollbar-thumb {
