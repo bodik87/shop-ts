@@ -1,6 +1,8 @@
 import { iCategory } from "@/app/models/models";
 import { categories } from "../variables";
 
+// id from 1 to 99
+
 export const cat_1: iCategory = {
   id: "1",
   title: categories[0].title,

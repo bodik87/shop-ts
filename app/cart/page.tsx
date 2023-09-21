@@ -56,7 +56,7 @@ const Cart = () => {
         </div>
 
         <div className="mt-10 lg:mt-0 lg:w-1/2">
-          <h3 className="mb-2">Можливо щось забули? Додайте!</h3>
+          {cartStore.cart.length > 0 && <h3 className="mb-2">Можливо щось забули? Додайте!</h3>}
           <HomePageCarousel />
         </div>
       </div>
