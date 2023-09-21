@@ -29,7 +29,7 @@ const Panel = () => {
 
       <header className="bg-slate-100 shadow-[0_3px_12px_rgb(0,0,0,0.15)]">
         <div className="max-w-7xl w-full h-14 px-4 sm:px-6 mx-auto flex justify-between items-center gap-4">
-          <Link href="/" className="font-bold">
+          <Link href="/" className="font-bold sm:ml-3">
             МАГАЗИН
           </Link>
 
