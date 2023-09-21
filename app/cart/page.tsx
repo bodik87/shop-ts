@@ -5,7 +5,7 @@ import { iProduct } from "../models/models";
 import { useCartStore } from "../store/cart";
 import Image from "next/image";
 import Link from "next/link";
-import { DotsArrow } from "../components/Icons";
+import { DeleteIcon } from "../components/Icons";
 import { HomePageCarousel } from "../components/HomePageCarousel";
 
 const Cart = () => {
@@ -45,7 +45,7 @@ const Cart = () => {
               </div>
 
               <div className="mt-3 flex flex-col items-end">
-                <button onClick={() => cartStore.deleteProduct(el)}><DotsArrow /></button>
+                <button onClick={() => cartStore.deleteProduct(el)}><DeleteIcon /></button>
                 <h3 className="mt-12">{el.quantity * el.price} грн</h3>
               </div>
 

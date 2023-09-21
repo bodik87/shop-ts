@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Promo from './Promo'
-import Navbar from './Navbar'
+import Navbar from './Navbar/Navbar'
 import Panel from './Panel'
 import { useMotionValueEvent, useScroll } from "framer-motion";
 

@@ -28,7 +28,7 @@ export default function Card({ product }: Props) {
       </Link>
 
       <div className="mt-2 text-sm lg:text-base">
-        <h3 className="px-2">{product.title}</h3>
+        <h3 className="px-2">{product.title.substring(0, 25)}</h3>
 
         <div className="flex px-2 text-lg font-medium">
           {product.oldPrice && (
