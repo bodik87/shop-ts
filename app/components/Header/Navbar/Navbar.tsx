@@ -60,7 +60,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-1 lg:gap-2">
-            <button className="block sm:hidden p-2 rounded-lg transition-all hover:bg-slate-100"
+            <button className="block md:hidden p-2 rounded-lg transition-all hover:bg-slate-100"
               onClick={() => setSearch(true)}
             >
               <SearchIcon />

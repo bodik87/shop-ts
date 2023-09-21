@@ -33,7 +33,7 @@ const Panel = () => {
             МАГАЗИН
           </Link>
 
-          <div onClick={() => setSearch(true)} className={`block max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300 ${search && "hidden"}`}>
+          <div onClick={() => setSearch(true)} className={`hidden md:block max-w-xs w-full relative rounded-lg overflow-hidden border border-gray-300 transition-all ${search && "opacity-0"}`}>
             <input
               type="text"
               placeholder="Пошук"
