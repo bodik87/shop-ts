@@ -38,7 +38,7 @@ const Account = () => {
 
         <button
           onClick={user ? handleSignOut : handleSignIn}
-          className="bg-slate-300 h-12 px-5 rounded-lg flex justify-center items-center transition-all hover:bg-slate-400"
+          className="border border-gray-300 active:bg-slate-100 py-2 px-3 rounded-lg shadow-sm"
         >
           {user ? "Вийти" : "Вхід"}
 

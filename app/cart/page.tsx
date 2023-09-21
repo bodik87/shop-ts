@@ -22,7 +22,7 @@ const Cart = () => {
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row lg:gap-10">
         <div className="lg:w-1/2">
-          <h1 className="mb-5">Корзина</h1>
+          <h1 className="mb-5">Кошик</h1>
 
           {cartStore.cart.map((el) => (
 
@@ -34,19 +34,25 @@ const Cart = () => {
 
                 <div>
                   <h3 className="text-xl">{el.title}</h3>
-                  <div className="opacity-80">Ціна за одиницю: {el.price} грн</div>
+                  <p className="opacity-80">Ціна за одиницю: {el.price} грн</p>
 
                   <div className="mt-3 flex items-center gap-3 text-lg">
-                    <button onClick={() => cartStore.decrQuantity(el)} disabled={el.quantity === 1} className="bg-slate-200 rounded-lg w-10 h-10 disabled:opacity-50">-</button>
+                    <button
+                      onClick={() => cartStore.decrQuantity(el)}
+                      disabled={el.quantity === 1}
+                      className="bg-slate-200 rounded-lg w-10 h-10 disabled:opacity-50">-</button>
                     <span className="border rounded-lg w-12 h-12 flex items-center justify-center">{el.quantity}</span>
-                    <button onClick={() => cartStore.incrQuantity(el)} className="bg-slate-200 rounded-lg w-10 h-10">+</button>
+                    <button
+                      onClick={() => cartStore.incrQuantity(el)} className="bg-slate-200 rounded-lg w-10 h-10">+</button>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-3 flex flex-col items-end">
-                <button onClick={() => cartStore.deleteProduct(el)}><DeleteIcon /></button>
-                <h3 className="mt-12">{el.quantity * el.price} грн</h3>
+              <div className="mt-1 pb-1 flex flex-col items-end justify-between">
+                <button onClick={() => cartStore.deleteProduct(el)}>
+                  <DeleteIcon />
+                </button>
+                <h3>{el.quantity * el.price} грн</h3>
               </div>
 
             </div>
@@ -60,8 +66,6 @@ const Cart = () => {
           <HomePageCarousel />
         </div>
       </div>
-
-
     </div>
   );
 };

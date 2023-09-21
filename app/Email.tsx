@@ -33,7 +33,7 @@ const Email = ({ total }: { total: number }) => {
 
       <h2>Разом: {total} грн</h2>
 
-      <button onClick={() => sendEmail()} className="mt-5 p-6 text-center bg-color_1 text-white w-fit rounded-xl">
+      <button onClick={() => sendEmail()} className="mt-5 px-6 py-4 text-center bg-color_1 text-white text-lg font-medium w-fit rounded-xl">
         <p>Створити замовлення</p>
       </button>
 
