@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ButtonUp from "./components/ButtonUp";
 import Header from "./components/Header/Header";
 import Hydration from "./components/Hydration";
+import AuthProvider from './auth/Provider'
 import './globals.css'
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <AuthContextProvider>
+      <AuthProvider>
         <body className={`${roboto.className} flex flex-col min-h-screen`}>
           <Hydration>
             <ButtonUp />
@@ -40,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </Hydration>
         </body>
+        </AuthProvider>
       </AuthContextProvider>
     </html>
   )
