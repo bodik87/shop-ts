@@ -18,7 +18,7 @@ const Cart = () => {
   }, [])
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <section className="max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row lg:gap-6">
         <div className="lg:w-1/2 lg:border border-slate-300 lg:p-5 rounded-xl">
           <h1 className="mb-5">Кошик</h1>
@@ -78,7 +78,7 @@ const Cart = () => {
           <HomePageCarousel />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

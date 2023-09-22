@@ -1,10 +1,11 @@
 import React from "react";
+import Link from "next/link";
 
 const Account = () => {
 
   return (
     <>
-      Account
+      <Link href={`/auth`}>Вхід</Link>
     </>
   )
 }
