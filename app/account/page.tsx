@@ -5,7 +5,7 @@ const Account = () => {
 
   return (
     <>
-      <Link href={`/auth`}>Вхід</Link>
+      <Link href={`/authpage`}>Вхід</Link>
     </>
   )
 }
