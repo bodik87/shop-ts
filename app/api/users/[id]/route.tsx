@@ -43,5 +43,5 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
  // 2. Otherwise delete the user, Return 200
  await prisma.user.delete({ where: { id: user.id } })
 
- return NextResponse.json({ message: `User with was deleted` })
+ return NextResponse.json({ message: `User was deleted` })
 }
