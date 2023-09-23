@@ -8,12 +8,12 @@ export async function GET(request: NextRequest) {
 }
 
 // CREATE
-export async function POST(request: NextRequest) {
-  const body = await request.json();
+// export async function POST(request: NextRequest) {
+//   const body = await request.json();
 
-  const order = await prisma.orders.create({
-    data: {},
-  });
+//   const order = await prisma.orders.create({
+//     data: {},
+//   });
 
-  return NextResponse.json(order, { status: 201 });
-}
+//   return NextResponse.json(order, { status: 201 });
+// }
