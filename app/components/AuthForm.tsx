@@ -18,10 +18,8 @@ const AuthForm = () => {
   useEffect(() => {
     if (session?.status === "authenticated") {
       router.push("/account")
-
     }
   }, [session?.status, router])
-
 
   const toggleVariant = useCallback(() => {
     if (variant === "LOGIN") {

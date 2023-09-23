@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useCartStore } from "../store/cart";
-import Email from "../Email";
+import Order from "../Order";
 import { DeleteIcon } from "../components/Icons";
 import { HomePageCarousel } from "../components/HomePageCarousel";
 import { totalPrice } from "../utils/totalPrice";
@@ -67,7 +67,7 @@ const Cart = () => {
                   </div>
                 </article>
               ))}
-              <Email total={total} />
+              <Order total={total} />
             </>
             : <h2 className="mt-8">Товари відсутні</h2>}
         </div>

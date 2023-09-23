@@ -1,8 +1,8 @@
 export interface iProduct {
   id: string;
   title: string;
-  images: string[];
   price: number;
+  images: string[];
   oldPrice?: number;
   brand?: string;
   size?: string;
@@ -15,4 +15,11 @@ export interface iCategory {
   id: string;
   title: string;
   products: iProduct[];
+}
+
+export interface Beer {
+  id: number;
+  name: string;
+  tagline: string;
+  image_url: string;
 }

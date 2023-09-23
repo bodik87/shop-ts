@@ -33,6 +33,14 @@ const CatalogMenu = ({ catalog, setCatalog }: Props) => {
           {category.title}
          </Link>
         ))}
+
+        <Link
+         href={`/testing-page`}
+         className="py-4 px-4 text-left transition-all hover:bg-slate-200 rounded-md"
+         onClick={() => { setCatalog(false) }}
+        >
+         Тестова сторінка
+        </Link>
        </div>
       </div>
      </div>
