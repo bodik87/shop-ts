@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "./store/cart";
-import axios from 'axios'
+// import axios from 'axios'
 import { iProduct } from "./models/models";
 import { useSession } from "next-auth/react";
 
@@ -33,12 +33,12 @@ const Order = ({ total }: Props) => {
   //   });
 
   const createOrder = async (data: iOrder) => {
-    axios.post("/api/orders", data)
-      .catch(() => console.log("Проблема при замовленні"))
-      .finally(() => {
-        router.push("/ordered"),
-          setLoading(false)
-      })
+    // axios.post("/api/orders", data)
+    //   .catch(() => console.log("Проблема при замовленні"))
+    //   .finally(() => {
+    //     router.push("/ordered"),
+    //       setLoading(false)
+    //   })
     cartStore.clearCart()
   };
 
