@@ -12,11 +12,11 @@ export function LoadMore() {
 
   const { ref, inView } = useInView();
 
-  const delay = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms));
+  // const delay = (ms: number) =>
+  //   new Promise((resolve) => setTimeout(resolve, ms));
 
   const loadMoreBeers = async () => {
-    await delay(500);
+    // await delay(500);
     const nextPage = (page % 7) + 1;
     const newProducts = (await fetchBeers(nextPage)) ?? [];
     setBeers((prevProducts: Beer[]) => [...prevProducts, ...newProducts]);
@@ -31,7 +31,7 @@ export function LoadMore() {
     <>
       <Beers beers={beers} />
       <div
-        className="flex justify-center items-center p-4 col-span-1 sm:col-span-2 md:col-span-3"
+        className="flex justify-center items-center p-4 col-span-2 md:col-span-3"
         ref={ref}
       >
         <Spinner />
