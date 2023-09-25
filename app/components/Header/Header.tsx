@@ -1,35 +1,32 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Promo from './Promo'
 import Navbar from './Navbar/Navbar'
 import Panel from './Panel'
-import { useMotionValueEvent, useScroll } from "framer-motion";
-
 
 const Header = () => {
- const [scrollUp, setScrollUp] = useState(true);
- // const [transparent, setTransparent] = useState(true);
+ const [prevScrollPos, setPrevScrollPos] = useState(0);
+ const [visible, setVisible] = useState(true)
 
- const { scrollY }: any = useScroll();
+ const handleScroll = () => {
+  const currentScrollPos = window.scrollY
 
- useMotionValueEvent(scrollY, "change", (latest: any) => {
-  const previousScrollY = scrollY.getPrevious();
-  if (latest > previousScrollY && scrollY.current > 200) {
-   setScrollUp(false);
+  if (currentScrollPos > prevScrollPos) {
+   setVisible(false)
   } else {
-   setScrollUp(true);
+   setVisible(true)
   }
+  setPrevScrollPos(currentScrollPos)
+ }
 
-  // if (scrollY.current < 20) {
-  //  setTransparent(true);
-  // } else {
-  //  setTransparent(false);
-  // }
- });
+ useEffect(() => {
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll)
+ })
 
  return (
   <header
-   className={`${!scrollUp && "-translate-y-full"} fixed top-0 left-0 w-full transition-all duration-300 flex flex-col z-30`}
+   className={`${!visible && "-translate-y-[110%]"} fixed top-0 left-0 w-full transition-all duration-300 flex flex-col z-30`}
   >
    <Promo />
    <Navbar />
